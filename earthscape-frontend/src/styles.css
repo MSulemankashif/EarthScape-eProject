@@ -1,0 +1,32 @@
+:root {
+  --bg: #f4f6f8; --panel: #fff; --text: #1b2430; --muted: #6b7684;
+  --brand: #0f766e; --brand-dark: #0b5a54; --border: #e2e6ea; --danger: #b42318;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0f1419; --panel: #1a212b; --text: #e6eaef; --muted: #8b97a6; --border: #2b3441; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: var(--bg); color: var(--text); }
+.shell { display: flex; min-height: 100vh; }
+.sidebar { width: 220px; background: var(--panel); border-right: 1px solid var(--border); padding: 16px; }
+.brand { font-size: 18px; margin: 0 0 16px; }
+.sidebar nav { display: flex; flex-direction: column; gap: 2px; }
+.nav-link { padding: 8px 10px; border-radius: 6px; color: var(--text); text-decoration: none; }
+.nav-link:hover { background: var(--bg); }
+.nav-link.active { background: var(--brand); color: #fff; }
+.nav-section { margin: 14px 10px 4px; font-size: 11px; text-transform: uppercase; color: var(--muted); letter-spacing: .06em; }
+.main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.topbar { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background: var(--panel); border-bottom: 1px solid var(--border); }
+.content { padding: 20px; }
+.card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+.center { display: grid; place-items: center; min-height: 100vh; }
+.login { width: 340px; display: flex; flex-direction: column; gap: 12px; }
+.login label { display: flex; flex-direction: column; gap: 4px; font-size: 14px; }
+input { padding: 9px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text); }
+button { padding: 9px 14px; border: 0; border-radius: 6px; background: var(--brand); color: #fff; cursor: pointer; }
+button:hover { background: var(--brand-dark); }
+button:disabled { opacity: .6; cursor: default; }
+.muted { color: var(--muted); }
+.error { color: var(--danger); margin: 0; font-size: 14px; }
+.badge { background: var(--bg); border: 1px solid var(--border); border-radius: 999px; padding: 1px 8px; font-size: 12px; }
+@media (max-width: 800px) { .sidebar { width: 160px; } }
