@@ -94,8 +94,10 @@ def test_history_and_stats():
 
 def test_custom_dispatcher_is_used():
     seen = []
-    engine = AlertEngine(dispatcher=seen.append)
+    # Only the custom rule (no default rules) so the count is deterministic
+    engine = AlertEngine(rules=[], dispatcher=seen.append)
     engine.add_rule(AlertRule("t", "temperature_c", "gt", 10.0))
     engine.evaluate_reading(make_reading(temperature_c=99.0))
     assert len(seen) == 1
     assert seen[0].value == 99.0
+    assert seen[0].rule_name == "t"

@@ -19,15 +19,21 @@ def make_df(n: int = 400, seed: int = 7) -> pd.DataFrame:
     t = np.arange(n)
     seasonal = 8 * np.sin(2 * np.pi * t / 365.25)
     temp = 24 + 0.01 * t + seasonal + rng.normal(0, 1.2, n)
-    temp[100] = 55.0  # injected outlier
+    humidity = 50 + 15 * np.sin(2 * np.pi * t / 365.25 + 1) + rng.normal(0, 4, n)
+    pm25 = np.abs(rng.normal(60, 12, n))
+    if n > 100:
+        # Multivariate extreme event: heatwave + dust storm signature
+        temp[100] = 55.0
+        humidity[100] = 5.0
+        pm25[100] = 480.0
     return pd.DataFrame({
         "date": dates,
         "station_id": "STN-001",
         "temperature_c": temp,
-        "humidity_pct": 50 + 15 * np.sin(2 * np.pi * t / 365.25 + 1) + rng.normal(0, 4, n),
+        "humidity_pct": humidity,
         "rainfall_mm": np.abs(rng.normal(2, 1.5, n)),
         "co2_ppm": 415 + 0.02 * t + rng.normal(0, 2, n),
-        "pm25": np.abs(rng.normal(60, 12, n)),
+        "pm25": pm25,
         "wind_speed_kph": np.abs(rng.normal(11, 3, n)),
         "sea_level_mm": -4 + 0.01 * t + rng.normal(0, 1, n),
     })

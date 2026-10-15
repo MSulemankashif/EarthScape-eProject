@@ -5,7 +5,7 @@ Reducer: monthly climate aggregation (Hadoop Streaming compatible)
 Consumes the mapper output sorted by key and computes, per station-month:
     count, sum, mean, min, max, stddev  for each measurement.
 
-Output CSV written to STDOUT:
+Output CSV (with header) written to STDOUT:
     station_id,month,metric,count,mean,min,max,stddev,sum
 
 Local run (after sorting):
@@ -19,8 +19,13 @@ import math
 import sys
 from collections import defaultdict
 
+HEADER = "station_id,month,metric,count,mean,min,max,stddev,sum"
+
 
 def main() -> None:
+    # Header is emitted first so the CSV is self-describing (pandas, Impala)
+    sys.stdout.write(HEADER + "\n")
+
     current_key = None
     buckets = defaultdict(list)  # metric -> [values]
 

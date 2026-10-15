@@ -11,7 +11,11 @@ STN-001,Karachi,2024-01-01,20.5,70,0.0,415.2,55,10,-4
 STN-001,Karachi,2024-01-02,21.0,72,1.5,416.0,60,12,-4
 STN-001,Karachi,2024-01-03,,75,0.5,417.1,58,11,-3
 STN-002,Lahore,2024-01-01,15.0,50,0.0,422.0,80,8,-6
-STN-002,Lahore,2024-01-02,51.0,48,0.0,423.0,82,9,-6
+STN-002,Lahore,2024-01-02,16.0,52,0.0,421.0,82,9,-6
+STN-002,Lahore,2024-01-03,14.5,49,0.0,423.0,79,8,-6
+STN-002,Lahore,2024-01-04,15.5,51,0.1,422.5,81,7,-6
+STN-002,Lahore,2024-01-05,15.2,50,0.0,421.8,80,9,-6
+STN-002,Lahore,2024-01-06,51.0,48,0.0,423.0,82,9,-6
 """
 
 
@@ -57,6 +61,8 @@ def test_anomaly_detection_flags_outlier():
     lines = [l for l in out.splitlines() if l and not l.startswith("station_id")]
     flagged = {l.split(",")[0] + "|" + l.split(",")[1] for l in lines}
     assert "STN-002|temperature_c" in flagged, "51.0C outlier not flagged"
+    # The near-identical readings must NOT be flagged
+    assert "STN-002|sea_level_mm" not in flagged
 
 
 def test_malformed_lines_do_not_crash():

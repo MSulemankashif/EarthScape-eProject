@@ -48,8 +48,15 @@ class LocalHDFS:
 
     # -- helpers ------------------------------------------------------------
     def _full(self, hdfs_path: str) -> Path:
-        rel = hdfs_path.lstrip("/").replace("..", "")
-        return self.root / rel
+        """Resolve an HDFS path, guaranteed to stay inside the root.
+
+        Empty, '.' and '..' components are dropped so no path-traversal
+        escape (e.g. /../../etc/passwd) is possible.
+        """
+        normalized = hdfs_path.replace("\\", "/")
+        parts = [p for p in normalized.split("/")
+                 if p not in ("", ".", "..")]
+        return self.root.joinpath(*parts) if parts else self.root
 
     # -- public API (mirrors the real CLI) ----------------------------------
     def mkdirs(self, hdfs_path: str) -> None:

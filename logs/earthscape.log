@@ -2300,3 +2300,746 @@
 2026-10-15 19:14:07 | INFO     | earthscape.storage | PUT dataframe (873 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
 2026-10-15 19:14:07 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
 2026-10-15 19:14:07 | INFO     | earthscape.storage | PUT dataframe (874 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:09 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:09 | INFO     | earthscape.storage | PUT dataframe (875 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:09 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:09 | INFO     | earthscape.storage | PUT dataframe (876 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:09 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:09 | INFO     | earthscape.storage | PUT dataframe (877 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:11 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:11 | INFO     | earthscape.storage | PUT dataframe (878 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:11 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:11 | INFO     | earthscape.storage | PUT dataframe (879 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:11 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:11 | INFO     | earthscape.storage | PUT dataframe (880 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:13 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:13 | INFO     | earthscape.storage | PUT dataframe (881 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:13 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:13 | INFO     | earthscape.storage | PUT dataframe (882 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:13 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:13 | INFO     | earthscape.storage | PUT dataframe (883 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:15 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:15 | INFO     | earthscape.storage | PUT dataframe (884 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:15 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:15 | INFO     | earthscape.storage | PUT dataframe (885 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:15 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:15 | INFO     | earthscape.storage | PUT dataframe (886 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:17 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:17 | INFO     | earthscape.storage | PUT dataframe (887 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:17 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:17 | INFO     | earthscape.storage | PUT dataframe (888 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:17 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:17 | INFO     | earthscape.storage | PUT dataframe (889 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:19 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:19 | INFO     | earthscape.storage | PUT dataframe (890 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:19 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:19 | INFO     | earthscape.storage | PUT dataframe (891 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:19 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:19 | INFO     | earthscape.storage | PUT dataframe (892 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:21 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:21 | INFO     | earthscape.storage | PUT dataframe (893 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:21 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:21 | INFO     | earthscape.storage | PUT dataframe (894 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:21 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:21 | INFO     | earthscape.storage | PUT dataframe (895 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:23 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:23 | INFO     | earthscape.storage | PUT dataframe (896 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:23 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:23 | INFO     | earthscape.storage | PUT dataframe (897 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:23 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:23 | INFO     | earthscape.storage | PUT dataframe (898 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:25 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:25 | INFO     | earthscape.storage | PUT dataframe (899 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:25 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:25 | INFO     | earthscape.storage | PUT dataframe (900 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:25 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:25 | INFO     | earthscape.storage | PUT dataframe (901 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:27 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:27 | INFO     | earthscape.storage | PUT dataframe (902 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:27 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:27 | INFO     | earthscape.storage | PUT dataframe (903 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:27 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:27 | INFO     | earthscape.storage | PUT dataframe (904 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:29 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:29 | INFO     | earthscape.storage | PUT dataframe (905 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:29 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:29 | INFO     | earthscape.storage | PUT dataframe (906 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:29 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:29 | INFO     | earthscape.storage | PUT dataframe (907 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:31 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:32 | INFO     | earthscape.storage | PUT dataframe (908 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:32 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:32 | INFO     | earthscape.storage | PUT dataframe (909 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:32 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:32 | INFO     | earthscape.storage | PUT dataframe (910 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:34 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:34 | INFO     | earthscape.storage | PUT dataframe (911 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:34 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:34 | INFO     | earthscape.storage | PUT dataframe (912 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:34 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:34 | INFO     | earthscape.storage | PUT dataframe (913 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:36 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:36 | INFO     | earthscape.storage | PUT dataframe (914 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:36 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:36 | INFO     | earthscape.storage | PUT dataframe (915 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:36 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:36 | INFO     | earthscape.storage | PUT dataframe (916 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:38 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:38 | INFO     | earthscape.storage | PUT dataframe (917 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:38 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:38 | INFO     | earthscape.storage | PUT dataframe (918 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:38 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:38 | INFO     | earthscape.storage | PUT dataframe (919 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:40 | INFO     | earthscape.storage | PUT dataframe (920 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:40 | INFO     | earthscape.storage | PUT dataframe (921 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:40 | INFO     | earthscape.storage | PUT dataframe (922 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:42 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:42 | INFO     | earthscape.storage | PUT dataframe (923 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:42 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:42 | INFO     | earthscape.storage | PUT dataframe (924 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:42 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:42 | INFO     | earthscape.storage | PUT dataframe (925 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:44 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:44 | INFO     | earthscape.storage | PUT dataframe (926 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:44 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:44 | INFO     | earthscape.storage | PUT dataframe (927 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:44 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:44 | INFO     | earthscape.storage | PUT dataframe (928 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:46 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:46 | INFO     | earthscape.storage | PUT dataframe (929 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:46 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:46 | INFO     | earthscape.storage | PUT dataframe (930 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:46 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:46 | INFO     | earthscape.storage | PUT dataframe (931 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:48 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:48 | INFO     | earthscape.storage | PUT dataframe (932 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:48 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:48 | INFO     | earthscape.storage | PUT dataframe (933 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:48 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:48 | INFO     | earthscape.storage | PUT dataframe (934 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:50 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:50 | INFO     | earthscape.storage | PUT dataframe (935 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:50 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:50 | INFO     | earthscape.storage | PUT dataframe (936 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:50 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:50 | INFO     | earthscape.storage | PUT dataframe (937 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:52 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:52 | INFO     | earthscape.storage | PUT dataframe (938 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:52 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:52 | INFO     | earthscape.storage | PUT dataframe (939 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:52 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:52 | INFO     | earthscape.storage | PUT dataframe (940 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:54 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:54 | INFO     | earthscape.storage | PUT dataframe (941 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:54 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:54 | INFO     | earthscape.storage | PUT dataframe (942 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:54 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:54 | INFO     | earthscape.storage | PUT dataframe (943 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:56 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:56 | INFO     | earthscape.storage | PUT dataframe (944 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:56 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:56 | INFO     | earthscape.storage | PUT dataframe (945 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:56 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:56 | INFO     | earthscape.storage | PUT dataframe (946 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:58 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:58 | INFO     | earthscape.storage | PUT dataframe (947 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:58 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:58 | INFO     | earthscape.storage | PUT dataframe (948 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:14:58 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:14:58 | INFO     | earthscape.storage | PUT dataframe (949 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:00 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:00 | INFO     | earthscape.storage | PUT dataframe (950 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:00 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:00 | INFO     | earthscape.storage | PUT dataframe (951 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:00 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:00 | INFO     | earthscape.storage | PUT dataframe (952 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:02 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:02 | INFO     | earthscape.storage | PUT dataframe (953 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:02 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:02 | INFO     | earthscape.storage | PUT dataframe (954 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:02 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:02 | INFO     | earthscape.storage | PUT dataframe (955 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:04 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:04 | INFO     | earthscape.storage | PUT dataframe (956 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:04 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:05 | INFO     | earthscape.storage | PUT dataframe (957 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:05 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:05 | INFO     | earthscape.storage | PUT dataframe (958 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:07 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:07 | INFO     | earthscape.storage | PUT dataframe (959 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:07 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:07 | INFO     | earthscape.storage | PUT dataframe (960 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:07 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:07 | INFO     | earthscape.storage | PUT dataframe (961 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:09 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:09 | INFO     | earthscape.storage | PUT dataframe (962 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:09 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:09 | INFO     | earthscape.storage | PUT dataframe (963 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:09 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:09 | INFO     | earthscape.storage | PUT dataframe (964 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:11 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:11 | INFO     | earthscape.storage | PUT dataframe (965 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:11 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:11 | INFO     | earthscape.storage | PUT dataframe (966 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:11 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:11 | INFO     | earthscape.storage | PUT dataframe (967 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:13 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:13 | INFO     | earthscape.storage | PUT dataframe (968 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:13 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:13 | INFO     | earthscape.storage | PUT dataframe (969 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:13 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:13 | INFO     | earthscape.storage | PUT dataframe (970 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:15 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:15 | INFO     | earthscape.storage | PUT dataframe (971 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:15 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:15 | INFO     | earthscape.storage | PUT dataframe (972 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:15 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:15 | INFO     | earthscape.storage | PUT dataframe (973 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:17 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:17 | INFO     | earthscape.storage | PUT dataframe (974 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:17 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:17 | INFO     | earthscape.storage | PUT dataframe (975 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:17 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:17 | INFO     | earthscape.storage | PUT dataframe (976 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:19 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:19 | INFO     | earthscape.storage | PUT dataframe (977 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:19 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:19 | INFO     | earthscape.storage | PUT dataframe (978 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:19 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:19 | INFO     | earthscape.storage | PUT dataframe (979 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:21 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:21 | INFO     | earthscape.storage | PUT dataframe (980 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:21 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:21 | INFO     | earthscape.storage | PUT dataframe (981 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:21 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:21 | INFO     | earthscape.storage | PUT dataframe (982 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:23 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:23 | INFO     | earthscape.storage | PUT dataframe (983 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:23 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:23 | INFO     | earthscape.storage | PUT dataframe (984 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:23 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:23 | INFO     | earthscape.storage | PUT dataframe (985 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:25 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:25 | INFO     | earthscape.storage | PUT dataframe (986 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:25 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:25 | INFO     | earthscape.storage | PUT dataframe (987 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:25 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:25 | INFO     | earthscape.storage | PUT dataframe (988 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:27 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:27 | INFO     | earthscape.storage | PUT dataframe (989 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:27 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:27 | INFO     | earthscape.storage | PUT dataframe (990 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:27 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:27 | INFO     | earthscape.storage | PUT dataframe (991 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:29 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:29 | INFO     | earthscape.storage | PUT dataframe (992 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:29 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:29 | INFO     | earthscape.storage | PUT dataframe (993 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:29 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:29 | INFO     | earthscape.storage | PUT dataframe (994 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:31 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:31 | INFO     | earthscape.storage | PUT dataframe (995 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:31 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:31 | INFO     | earthscape.storage | PUT dataframe (996 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:31 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:31 | INFO     | earthscape.storage | PUT dataframe (997 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:32 | INFO     | earthscape.alerts | Rule added: t (temperature_c gt 10.0, warning)
+2026-10-15 19:15:33 | INFO     | earthscape.mapreduce | Running job 'monthly_aggregation' (Monthly statistics per weather station) over in.csv
+2026-10-15 19:15:33 | INFO     | earthscape.mapreduce | Job 'monthly_aggregation' finished -> C:\Users\Std\AppData\Local\Temp\tmp9kiylddw\out.csv
+2026-10-15 19:15:33 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:33 | INFO     | earthscape.storage | PUT dataframe (998 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:33 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:33 | INFO     | earthscape.storage | PUT dataframe (999 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:33 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:33 | INFO     | earthscape.storage | PUT dataframe (1000 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:35 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:35 | INFO     | earthscape.storage | PUT dataframe (1001 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:35 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:35 | INFO     | earthscape.storage | PUT dataframe (1002 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:35 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:36 | INFO     | earthscape.storage | PUT dataframe (1003 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:38 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:38 | INFO     | earthscape.storage | PUT dataframe (1004 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:38 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:38 | INFO     | earthscape.storage | PUT dataframe (1005 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:38 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:38 | INFO     | earthscape.storage | PUT dataframe (1006 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:40 | INFO     | earthscape.storage | PUT dataframe (1007 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:40 | INFO     | earthscape.storage | PUT dataframe (1008 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:40 | INFO     | earthscape.storage | PUT dataframe (1009 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:42 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:42 | INFO     | earthscape.storage | PUT dataframe (1010 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:42 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:42 | INFO     | earthscape.storage | PUT dataframe (1011 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:42 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:42 | INFO     | earthscape.storage | PUT dataframe (1012 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:44 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:44 | INFO     | earthscape.storage | PUT dataframe (1013 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:44 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:44 | INFO     | earthscape.storage | PUT dataframe (1014 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:44 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:44 | INFO     | earthscape.storage | PUT dataframe (1015 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:46 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:46 | INFO     | earthscape.storage | PUT dataframe (1016 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:46 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:46 | INFO     | earthscape.storage | PUT dataframe (1017 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:46 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:46 | INFO     | earthscape.storage | PUT dataframe (1018 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:48 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:48 | INFO     | earthscape.storage | PUT dataframe (1019 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:48 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:48 | INFO     | earthscape.storage | PUT dataframe (1020 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:48 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:48 | INFO     | earthscape.storage | PUT dataframe (1021 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:50 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:50 | INFO     | earthscape.storage | PUT dataframe (1022 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:50 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:50 | INFO     | earthscape.storage | PUT dataframe (1023 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:50 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:50 | INFO     | earthscape.storage | PUT dataframe (1024 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:52 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:52 | INFO     | earthscape.storage | PUT dataframe (1025 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:52 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:52 | INFO     | earthscape.storage | PUT dataframe (1026 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:52 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:52 | INFO     | earthscape.storage | PUT dataframe (1027 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:54 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:54 | INFO     | earthscape.storage | PUT dataframe (1028 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:54 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:54 | INFO     | earthscape.storage | PUT dataframe (1029 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:54 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:54 | INFO     | earthscape.storage | PUT dataframe (1030 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:56 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:56 | INFO     | earthscape.storage | PUT dataframe (1031 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:56 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:56 | INFO     | earthscape.storage | PUT dataframe (1032 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:56 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:56 | INFO     | earthscape.storage | PUT dataframe (1033 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:58 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:58 | INFO     | earthscape.storage | PUT dataframe (1034 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:58 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:58 | INFO     | earthscape.storage | PUT dataframe (1035 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:15:58 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:15:58 | INFO     | earthscape.storage | PUT dataframe (1036 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:00 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:00 | INFO     | earthscape.storage | PUT dataframe (1037 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:00 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:00 | INFO     | earthscape.storage | PUT dataframe (1038 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:00 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:00 | INFO     | earthscape.storage | PUT dataframe (1039 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:02 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:03 | INFO     | earthscape.storage | PUT dataframe (1040 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:03 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:03 | INFO     | earthscape.storage | PUT dataframe (1041 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:03 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:03 | INFO     | earthscape.storage | PUT dataframe (1042 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:05 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:05 | INFO     | earthscape.storage | PUT dataframe (1043 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:05 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:05 | INFO     | earthscape.storage | PUT dataframe (1044 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:05 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:05 | INFO     | earthscape.storage | PUT dataframe (1045 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:07 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:07 | INFO     | earthscape.storage | PUT dataframe (1046 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:07 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:07 | INFO     | earthscape.storage | PUT dataframe (1047 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:07 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:07 | INFO     | earthscape.storage | PUT dataframe (1048 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:09 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:09 | INFO     | earthscape.storage | PUT dataframe (1049 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:09 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:09 | INFO     | earthscape.storage | PUT dataframe (1050 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:09 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:09 | INFO     | earthscape.storage | PUT dataframe (1051 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:11 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:11 | INFO     | earthscape.storage | PUT dataframe (1052 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:11 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:11 | INFO     | earthscape.storage | PUT dataframe (1053 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:11 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:11 | INFO     | earthscape.storage | PUT dataframe (1054 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:13 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:13 | INFO     | earthscape.storage | PUT dataframe (1055 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:13 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:13 | INFO     | earthscape.storage | PUT dataframe (1056 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:13 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:13 | INFO     | earthscape.storage | PUT dataframe (1057 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:15 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:15 | INFO     | earthscape.storage | PUT dataframe (1058 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:15 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:15 | INFO     | earthscape.storage | PUT dataframe (1059 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:15 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:15 | INFO     | earthscape.storage | PUT dataframe (1060 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:17 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:17 | INFO     | earthscape.storage | PUT dataframe (1061 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:17 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:17 | INFO     | earthscape.storage | PUT dataframe (1062 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:17 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:17 | INFO     | earthscape.storage | PUT dataframe (1063 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:19 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:19 | INFO     | earthscape.storage | PUT dataframe (1064 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:19 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:19 | INFO     | earthscape.storage | PUT dataframe (1065 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:19 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:19 | INFO     | earthscape.storage | PUT dataframe (1066 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:21 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:21 | INFO     | earthscape.storage | PUT dataframe (1067 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:21 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:21 | INFO     | earthscape.storage | PUT dataframe (1068 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:21 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:21 | INFO     | earthscape.storage | PUT dataframe (1069 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:23 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:23 | INFO     | earthscape.storage | PUT dataframe (1070 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:23 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:23 | INFO     | earthscape.storage | PUT dataframe (1071 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:23 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:23 | INFO     | earthscape.storage | PUT dataframe (1072 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:25 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:25 | INFO     | earthscape.storage | PUT dataframe (1073 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:25 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:25 | INFO     | earthscape.storage | PUT dataframe (1074 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:25 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:25 | INFO     | earthscape.storage | PUT dataframe (1075 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:27 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:28 | INFO     | earthscape.storage | PUT dataframe (1076 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:28 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:28 | INFO     | earthscape.storage | PUT dataframe (1077 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:28 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:28 | INFO     | earthscape.storage | PUT dataframe (1078 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:30 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:30 | INFO     | earthscape.storage | PUT dataframe (1079 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:30 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:30 | INFO     | earthscape.storage | PUT dataframe (1080 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:30 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:30 | INFO     | earthscape.storage | PUT dataframe (1081 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:32 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:32 | INFO     | earthscape.storage | PUT dataframe (1082 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:32 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:32 | INFO     | earthscape.storage | PUT dataframe (1083 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:32 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:32 | INFO     | earthscape.storage | PUT dataframe (1084 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:34 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:34 | INFO     | earthscape.storage | PUT dataframe (1085 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:34 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:34 | INFO     | earthscape.storage | PUT dataframe (1086 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:34 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:34 | INFO     | earthscape.storage | PUT dataframe (1087 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:36 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:36 | INFO     | earthscape.storage | PUT dataframe (1088 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:36 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:36 | INFO     | earthscape.storage | PUT dataframe (1089 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:36 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:36 | INFO     | earthscape.storage | PUT dataframe (1090 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:38 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:38 | INFO     | earthscape.storage | PUT dataframe (1091 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:38 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:38 | INFO     | earthscape.storage | PUT dataframe (1092 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:38 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:38 | INFO     | earthscape.storage | PUT dataframe (1093 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:40 | INFO     | earthscape.storage | PUT dataframe (1094 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:40 | INFO     | earthscape.storage | PUT dataframe (1095 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:40 | INFO     | earthscape.storage | PUT dataframe (1096 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:42 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:42 | INFO     | earthscape.storage | PUT dataframe (1097 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:42 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:42 | INFO     | earthscape.storage | PUT dataframe (1098 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:42 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:42 | INFO     | earthscape.storage | PUT dataframe (1099 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:44 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:44 | INFO     | earthscape.storage | PUT dataframe (1100 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:44 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:44 | INFO     | earthscape.storage | PUT dataframe (1101 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:44 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:44 | INFO     | earthscape.storage | PUT dataframe (1102 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:44 | INFO     | earthscape.ml | Anomaly model trained on 400 readings (7 features)
+2026-10-15 19:16:44 | INFO     | earthscape.ml | Anomaly prediction: 8 / 400 flagged
+2026-10-15 19:16:46 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:46 | INFO     | earthscape.storage | PUT dataframe (1103 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:46 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:46 | INFO     | earthscape.storage | PUT dataframe (1104 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:46 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:46 | INFO     | earthscape.storage | PUT dataframe (1105 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:48 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:48 | INFO     | earthscape.storage | PUT dataframe (1106 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:48 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:48 | INFO     | earthscape.storage | PUT dataframe (1107 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:48 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:48 | INFO     | earthscape.storage | PUT dataframe (1108 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:50 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:50 | INFO     | earthscape.storage | PUT dataframe (1109 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:50 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:50 | INFO     | earthscape.storage | PUT dataframe (1110 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:50 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:50 | INFO     | earthscape.storage | PUT dataframe (1111 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:52 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:52 | INFO     | earthscape.storage | PUT dataframe (1112 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:52 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:52 | INFO     | earthscape.storage | PUT dataframe (1113 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:52 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:52 | INFO     | earthscape.storage | PUT dataframe (1114 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:54 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:54 | INFO     | earthscape.storage | PUT dataframe (1115 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:54 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:54 | INFO     | earthscape.storage | PUT dataframe (1116 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:54 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:54 | INFO     | earthscape.storage | PUT dataframe (1117 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:57 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:57 | INFO     | earthscape.storage | PUT dataframe (1118 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:57 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:57 | INFO     | earthscape.storage | PUT dataframe (1119 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:57 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:57 | INFO     | earthscape.storage | PUT dataframe (1120 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:59 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:59 | INFO     | earthscape.storage | PUT dataframe (1121 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:59 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:59 | INFO     | earthscape.storage | PUT dataframe (1122 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:16:59 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:16:59 | INFO     | earthscape.storage | PUT dataframe (1123 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:01 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:01 | INFO     | earthscape.storage | PUT dataframe (1124 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:01 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:01 | INFO     | earthscape.storage | PUT dataframe (1125 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:01 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:01 | INFO     | earthscape.storage | PUT dataframe (1126 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:03 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:03 | INFO     | earthscape.storage | PUT dataframe (1127 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:03 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:03 | INFO     | earthscape.storage | PUT dataframe (1128 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:03 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:03 | INFO     | earthscape.storage | PUT dataframe (1129 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:05 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:05 | INFO     | earthscape.storage | PUT dataframe (1130 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:05 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:05 | INFO     | earthscape.storage | PUT dataframe (1131 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:05 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:05 | INFO     | earthscape.storage | PUT dataframe (1132 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:07 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:07 | INFO     | earthscape.storage | PUT dataframe (1133 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:07 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:07 | INFO     | earthscape.storage | PUT dataframe (1134 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:07 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:07 | INFO     | earthscape.storage | PUT dataframe (1135 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:09 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:09 | INFO     | earthscape.storage | PUT dataframe (1136 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:09 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:09 | INFO     | earthscape.storage | PUT dataframe (1137 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:09 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:09 | INFO     | earthscape.storage | PUT dataframe (1138 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:11 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:11 | INFO     | earthscape.storage | PUT dataframe (1139 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:11 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:11 | INFO     | earthscape.storage | PUT dataframe (1140 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:11 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:11 | INFO     | earthscape.storage | PUT dataframe (1141 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:13 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:13 | INFO     | earthscape.storage | PUT dataframe (1142 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:13 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:13 | INFO     | earthscape.storage | PUT dataframe (1143 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:13 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:13 | INFO     | earthscape.storage | PUT dataframe (1144 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:15 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:15 | INFO     | earthscape.storage | PUT dataframe (1145 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:15 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:15 | INFO     | earthscape.storage | PUT dataframe (1146 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:15 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:15 | INFO     | earthscape.storage | PUT dataframe (1147 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:17 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:17 | INFO     | earthscape.storage | PUT dataframe (1148 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:17 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:17 | INFO     | earthscape.storage | PUT dataframe (1149 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:17 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:17 | INFO     | earthscape.storage | PUT dataframe (1150 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:19 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:19 | INFO     | earthscape.storage | PUT dataframe (1151 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:19 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:19 | INFO     | earthscape.storage | PUT dataframe (1152 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:19 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:19 | INFO     | earthscape.storage | PUT dataframe (1153 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:21 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:21 | INFO     | earthscape.storage | PUT dataframe (1154 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:21 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:21 | INFO     | earthscape.storage | PUT dataframe (1155 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:21 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:21 | INFO     | earthscape.storage | PUT dataframe (1156 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:23 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:24 | INFO     | earthscape.storage | PUT dataframe (1157 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:24 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:24 | INFO     | earthscape.storage | PUT dataframe (1158 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:24 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:24 | INFO     | earthscape.storage | PUT dataframe (1159 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:26 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:26 | INFO     | earthscape.storage | PUT dataframe (1160 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:26 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:26 | INFO     | earthscape.storage | PUT dataframe (1161 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:26 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:26 | INFO     | earthscape.storage | PUT dataframe (1162 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:28 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:28 | INFO     | earthscape.storage | PUT dataframe (1163 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:28 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:28 | INFO     | earthscape.storage | PUT dataframe (1164 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:28 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:28 | INFO     | earthscape.storage | PUT dataframe (1165 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:30 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:30 | INFO     | earthscape.storage | PUT dataframe (1166 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:30 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:30 | INFO     | earthscape.storage | PUT dataframe (1167 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:30 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:30 | INFO     | earthscape.storage | PUT dataframe (1168 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:32 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:32 | INFO     | earthscape.storage | PUT dataframe (1169 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:32 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:32 | INFO     | earthscape.storage | PUT dataframe (1170 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:32 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:32 | INFO     | earthscape.storage | PUT dataframe (1171 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:34 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:34 | INFO     | earthscape.storage | PUT dataframe (1172 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:34 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:34 | INFO     | earthscape.storage | PUT dataframe (1173 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:34 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:34 | INFO     | earthscape.storage | PUT dataframe (1174 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:36 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:36 | INFO     | earthscape.storage | PUT dataframe (1175 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:36 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:36 | INFO     | earthscape.storage | PUT dataframe (1176 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:36 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:36 | INFO     | earthscape.storage | PUT dataframe (1177 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:38 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:38 | INFO     | earthscape.storage | PUT dataframe (1178 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:38 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:38 | INFO     | earthscape.storage | PUT dataframe (1179 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:38 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:38 | INFO     | earthscape.storage | PUT dataframe (1180 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:40 | INFO     | earthscape.storage | PUT dataframe (1181 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:40 | INFO     | earthscape.storage | PUT dataframe (1182 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:40 | INFO     | earthscape.storage | PUT dataframe (1183 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:42 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:42 | INFO     | earthscape.storage | PUT dataframe (1184 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:42 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:42 | INFO     | earthscape.storage | PUT dataframe (1185 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:42 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:42 | INFO     | earthscape.storage | PUT dataframe (1186 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:44 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:44 | INFO     | earthscape.storage | PUT dataframe (1187 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:44 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:44 | INFO     | earthscape.storage | PUT dataframe (1188 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:44 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:44 | INFO     | earthscape.storage | PUT dataframe (1189 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:46 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:46 | INFO     | earthscape.storage | PUT dataframe (1190 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:46 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:46 | INFO     | earthscape.storage | PUT dataframe (1191 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:46 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:46 | INFO     | earthscape.storage | PUT dataframe (1192 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:48 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:49 | INFO     | earthscape.storage | PUT dataframe (1193 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:49 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:49 | INFO     | earthscape.storage | PUT dataframe (1194 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:49 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:49 | INFO     | earthscape.storage | PUT dataframe (1195 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:51 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:51 | INFO     | earthscape.storage | PUT dataframe (1196 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:51 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:51 | INFO     | earthscape.storage | PUT dataframe (1197 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:51 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:51 | INFO     | earthscape.storage | PUT dataframe (1198 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:53 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:53 | INFO     | earthscape.storage | PUT dataframe (1199 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:53 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:53 | INFO     | earthscape.storage | PUT dataframe (1200 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:53 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:53 | INFO     | earthscape.storage | PUT dataframe (1201 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:55 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:55 | INFO     | earthscape.storage | PUT dataframe (1202 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:55 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:55 | INFO     | earthscape.storage | PUT dataframe (1203 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:55 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:55 | INFO     | earthscape.storage | PUT dataframe (1204 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:57 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:57 | INFO     | earthscape.storage | PUT dataframe (1205 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:57 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:57 | INFO     | earthscape.storage | PUT dataframe (1206 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:57 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:57 | INFO     | earthscape.storage | PUT dataframe (1207 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:59 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:59 | INFO     | earthscape.storage | PUT dataframe (1208 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:59 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:59 | INFO     | earthscape.storage | PUT dataframe (1209 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:17:59 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:17:59 | INFO     | earthscape.storage | PUT dataframe (1210 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:01 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:01 | INFO     | earthscape.storage | PUT dataframe (1211 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:01 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:01 | INFO     | earthscape.storage | PUT dataframe (1212 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:01 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:01 | INFO     | earthscape.storage | PUT dataframe (1213 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:03 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:03 | INFO     | earthscape.storage | PUT dataframe (1214 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:03 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:03 | INFO     | earthscape.storage | PUT dataframe (1215 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:03 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:03 | INFO     | earthscape.storage | PUT dataframe (1216 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:05 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:05 | INFO     | earthscape.storage | PUT dataframe (1217 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:05 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:05 | INFO     | earthscape.storage | PUT dataframe (1218 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:05 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:05 | INFO     | earthscape.storage | PUT dataframe (1219 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:07 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:07 | INFO     | earthscape.storage | PUT dataframe (1220 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:07 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:07 | INFO     | earthscape.storage | PUT dataframe (1221 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:07 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:07 | INFO     | earthscape.storage | PUT dataframe (1222 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:09 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:09 | INFO     | earthscape.storage | PUT dataframe (1223 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:09 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:09 | INFO     | earthscape.storage | PUT dataframe (1224 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:09 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:09 | INFO     | earthscape.storage | PUT dataframe (1225 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:11 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:11 | INFO     | earthscape.storage | PUT dataframe (1226 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:11 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:11 | INFO     | earthscape.storage | PUT dataframe (1227 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:11 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:11 | INFO     | earthscape.storage | PUT dataframe (1228 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:13 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:13 | INFO     | earthscape.storage | PUT dataframe (1229 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:13 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:14 | INFO     | earthscape.storage | PUT dataframe (1230 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:14 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:14 | INFO     | earthscape.storage | PUT dataframe (1231 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:16 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:16 | INFO     | earthscape.storage | PUT dataframe (1232 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:16 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:16 | INFO     | earthscape.storage | PUT dataframe (1233 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:16 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:16 | INFO     | earthscape.storage | PUT dataframe (1234 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:18 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:18 | INFO     | earthscape.storage | PUT dataframe (1235 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:18 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:18 | INFO     | earthscape.storage | PUT dataframe (1236 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:18 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:18 | INFO     | earthscape.storage | PUT dataframe (1237 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:20 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:20 | INFO     | earthscape.storage | PUT dataframe (1238 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:20 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:20 | INFO     | earthscape.storage | PUT dataframe (1239 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:20 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:18:20 | INFO     | earthscape.storage | PUT dataframe (1240 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\live\readings\year=2026\month=10\day=15\part-live.csv
+2026-10-15 19:18:23 | INFO     | earthscape.db | Database backend: JSON store at C:\Users\Std\Downloads\new\EarthScape-eProject\data\db
+2026-10-15 19:18:23 | INFO     | earthscape.api | Starting EarthScape API on http://127.0.0.1:5000
+2026-10-15 19:19:32 | INFO     | earthscape.db | Database backend: JSON store at C:\Users\Std\Downloads\new\EarthScape-eProject\data\db
+2026-10-15 19:19:32 | INFO     | earthscape.api | Starting EarthScape API on http://127.0.0.1:5000
+2026-10-15 19:20:39 | INFO     | earthscape.db | Database backend: JSON store at C:\Users\Std\Downloads\new\EarthScape-eProject\data\db
+2026-10-15 19:20:39 | INFO     | earthscape.api | Starting EarthScape API on http://127.0.0.1:5000
