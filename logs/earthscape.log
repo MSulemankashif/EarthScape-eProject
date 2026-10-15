@@ -1,0 +1,151 @@
+2026-10-15 18:56:49 | INFO     | earthscape.generate | Injected anomaly: STN-001 2024-05-20 temperature_c=51.0
+2026-10-15 18:56:49 | INFO     | earthscape.generate | Injected anomaly: STN-002 2024-06-15 pm25=480.0
+2026-10-15 18:56:49 | INFO     | earthscape.generate | Injected anomaly: STN-006 2024-09-01 rainfall_mm=320.0
+2026-10-15 18:56:49 | INFO     | earthscape.generate | Injected anomaly: STN-005 2023-04-12 wind_speed_kph=118.0
+2026-10-15 18:56:49 | INFO     | earthscape.generate | Injected anomaly: STN-009 2024-01-05 temperature_c=-31.0
+2026-10-15 18:56:49 | INFO     | earthscape.generate | Weather stations dataset: 13140 rows x 13 cols
+2026-10-15 18:56:49 | INFO     | earthscape.generate | Sensor network dataset: 20000 rows x 8 cols
+2026-10-15 18:57:17 | INFO     | earthscape.generate | Injected anomaly: STN-001 2024-05-20 temperature_c=51.0
+2026-10-15 18:57:17 | INFO     | earthscape.generate | Injected anomaly: STN-002 2024-06-15 pm25=480.0
+2026-10-15 18:57:17 | INFO     | earthscape.generate | Injected anomaly: STN-006 2024-09-01 rainfall_mm=320.0
+2026-10-15 18:57:17 | INFO     | earthscape.generate | Injected anomaly: STN-005 2023-04-12 wind_speed_kph=118.0
+2026-10-15 18:57:17 | INFO     | earthscape.generate | Injected anomaly: STN-009 2024-01-05 temperature_c=-31.0
+2026-10-15 18:57:17 | INFO     | earthscape.generate | Weather stations dataset: 13140 rows x 13 cols
+2026-10-15 18:57:17 | INFO     | earthscape.generate | Sensor network dataset: 20000 rows x 8 cols
+2026-10-15 18:57:17 | INFO     | earthscape.generate | Satellite imagery dataset: 468 rows x 8 cols
+2026-10-15 18:57:17 | INFO     | earthscape.generate | Test data written to C:\Users\Std\Downloads\new\EarthScape-eProject\data\raw
+2026-10-15 18:57:17 | INFO     | earthscape.generate |   weather_stations.csv       1179.9 KB
+2026-10-15 18:57:17 | INFO     | earthscape.generate |   sensor_network.csv         1460.1 KB
+2026-10-15 18:57:17 | INFO     | earthscape.generate |   satellite_imagery.csv        26.3 KB
+2026-10-15 18:57:25 | INFO     | earthscape.ingest | Ingesting historical file weather_stations.csv
+2026-10-15 18:57:25 | INFO     | earthscape.ingest | Cleaned weather stations: 13140 rows, 287 missing measurements retained as NaN
+2026-10-15 18:57:25 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2022\month=01\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (336 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2022\month=02\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2022\month=03\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (360 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2022\month=04\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2022\month=05\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (360 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2022\month=06\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2022\month=07\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2022\month=08\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (360 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2022\month=09\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2022\month=10\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (360 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2022\month=11\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2022\month=12\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2023\month=01\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (336 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2023\month=02\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2023\month=03\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (360 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2023\month=04\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2023\month=05\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (360 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2023\month=06\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2023\month=07\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2023\month=08\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (360 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2023\month=09\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2023\month=10\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (360 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2023\month=11\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2023\month=12\part-00000.csv
+2026-10-15 18:57:25 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2024\month=01\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (348 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2024\month=02\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2024\month=03\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (360 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2024\month=04\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2024\month=05\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (360 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2024\month=06\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2024\month=07\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2024\month=08\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (360 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2024\month=09\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (372 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2024\month=10\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (360 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2024\month=11\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (360 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\weather\year=2024\month=12\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | Stored 36 partition(s) for dataset 'weather'
+2026-10-15 18:57:26 | INFO     | earthscape.ingest | Registered dataset 'weather' (13140 rows, 36 partitions)
+2026-10-15 18:57:26 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (3196 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\sensors\year=2026\month=07\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (6834 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\sensors\year=2026\month=08\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (6726 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\sensors\year=2026\month=09\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (3244 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\sensors\year=2026\month=10\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | Stored 4 partition(s) for dataset 'sensors'
+2026-10-15 18:57:26 | INFO     | earthscape.ingest | Registered dataset 'sensors' (20000 rows, 4 partitions)
+2026-10-15 18:57:26 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (6 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2023\month=10\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2023\month=11\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (15 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2023\month=12\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2024\month=01\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2024\month=02\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (15 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2024\month=03\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2024\month=04\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2024\month=05\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (15 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2024\month=06\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2024\month=07\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2024\month=08\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (15 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2024\month=09\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2024\month=10\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2024\month=11\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (15 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2024\month=12\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2025\month=01\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2025\month=02\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (15 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2025\month=03\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2025\month=04\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2025\month=05\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (15 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2025\month=06\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2025\month=07\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (15 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2025\month=08\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2025\month=09\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2025\month=10\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (15 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2025\month=11\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2025\month=12\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2026\month=01\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2026\month=02\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (15 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2026\month=03\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2026\month=04\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (15 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2026\month=05\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2026\month=06\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2026\month=07\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (15 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2026\month=08\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (12 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2026\month=09\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | PUT dataframe (6 rows) -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim\climate\satellite\year=2026\month=10\part-00000.csv
+2026-10-15 18:57:26 | INFO     | earthscape.storage | Stored 37 partition(s) for dataset 'satellite'
+2026-10-15 18:57:26 | INFO     | earthscape.ingest | Registered dataset 'satellite' (468 rows, 37 partitions)
+2026-10-15 18:57:36 | INFO     | earthscape.mapreduce | Running job 'monthly_aggregation' (Monthly statistics per weather station) over weather_stations.csv
+2026-10-15 18:57:37 | INFO     | earthscape.mapreduce | Job 'monthly_aggregation' finished -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\processed\monthly_aggregation.csv
+2026-10-15 18:57:51 | INFO     | earthscape.mapreduce | Running job 'anomaly_detection' (Z-score based climate anomaly detection) over weather_stations.csv
+2026-10-15 18:57:52 | INFO     | earthscape.mapreduce | Job 'anomaly_detection' finished -> C:\Users\Std\Downloads\new\EarthScape-eProject\data\processed\anomalies.csv
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.storage | Storage backend: LocalHDFS at C:\Users\Std\Downloads\new\EarthScape-eProject\data\hdfs_sim
+2026-10-15 19:00:40 | INFO     | earthscape.ml | Anomaly model trained on 13140 readings (7 features)
+2026-10-15 19:00:40 | INFO     | earthscape.ml | Anomaly prediction: 263 / 13140 flagged

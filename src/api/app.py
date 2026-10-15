@@ -176,6 +176,22 @@ def api_users():
     return jsonify({"users": list_users()})
 
 
+@app.patch("/api/auth/users/<username>/role")
+@admin_required
+def api_change_role(username: str):
+    """Admin-only: promote/demote a user between analyst and admin."""
+    body = request.get_json(silent=True) or {}
+    role = body.get("role", "")
+    if role not in ("admin", "analyst"):
+        return jsonify({"error": "Role must be 'admin' or 'analyst'."}), 400
+    from src.auth import change_role
+    if not change_role(username, role):
+        return jsonify({"error": f"User '{username}' not found."}), 404
+    log.info("Role change: %s -> %s (by %s)", username, role,
+             current_user()["username"])
+    return jsonify({"message": f"{username} is now {role}."})
+
+
 # ---------------------------------------------------------------------------
 # Data endpoints
 # ---------------------------------------------------------------------------

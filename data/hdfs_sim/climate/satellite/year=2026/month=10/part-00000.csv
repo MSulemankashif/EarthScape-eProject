@@ -1,0 +1,7 @@
+satellite_id,region,ndvi,lst_c,aerosol_index,chla_mg_m3,ice_cover_pct
+SAT-B,coastal,0.4527,29.51,0.4199,1.037,28.07
+SAT-B,inland,0.4371,24.31,0.6327,1.175,25.95
+SAT-B,highland,0.5047,12.6,0.3516,1.115,22.31
+SAT-C,coastal,0.4657,27.49,0.4225,0.876,20.64
+SAT-B,inland,0.3791,21.63,0.5394,1.214,21.94
+SAT-C,highland,0.332,11.96,0.4477,1.087,24.43

@@ -176,7 +176,8 @@ def generate_satellite_imagery() -> pd.DataFrame:
     """Weekly satellite-derived climate indices per region."""
     rng = random.Random(RANDOM_SEED + 13)
     np_rng = np.random.default_rng(RANDOM_SEED + 13)
-    weeks = pd.date_range(end=datetime.now().normalize(), periods=YEARS_OF_HISTORY * 52, freq="W")
+    weeks = pd.date_range(end=pd.Timestamp(datetime.now()).normalize(),
+                          periods=YEARS_OF_HISTORY * 52, freq="W")
 
     rows = []
     sat_ids = ["SAT-A", "SAT-B", "SAT-C"]
