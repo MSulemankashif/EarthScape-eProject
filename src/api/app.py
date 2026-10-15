@@ -66,13 +66,14 @@ _start_time = time.time()
 
 
 def _weather_df(limit: int | None = None) -> pd.DataFrame:
-    """Load the weather dataset from storage (cached per call)."""
+    """Load the weather dataset from HDFS-partitioned storage."""
     storage = get_storage()
     df = storage.read_dataset("/climate/weather/**/*.csv")
     if df.empty:
         return df
     if "date" not in df.columns:
-        # partition columns were dropped at write time - rebuild them
+        # Older part-files stored without the date column: rebuild it from
+        # the year=/month= partition folders.
         parts = storage.glob("/climate/weather/**/*.csv")
         frames = []
         for part in parts:

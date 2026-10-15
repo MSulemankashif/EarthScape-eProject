@@ -1,7 +1,7 @@
-satellite_id,region,ndvi,lst_c,aerosol_index,chla_mg_m3,ice_cover_pct
-SAT-A,coastal,0.4296,26.14,0.364,1.185,36.96
-SAT-A,inland,0.4119,21.29,0.5114,1.401,34.33
-SAT-C,highland,0.3522,12.39,0.289,1.522,40.44
-SAT-A,coastal,0.362,25.23,0.3221,1.26,40.58
-SAT-C,inland,0.3329,22.26,0.4482,1.276,33.96
-SAT-A,highland,0.326,10.67,0.2897,1.135,41.22
+satellite_id,region,week_ending,ndvi,lst_c,aerosol_index,chla_mg_m3,ice_cover_pct
+SAT-A,coastal,2023-10-22,0.4296,26.14,0.364,1.185,36.96
+SAT-A,inland,2023-10-22,0.4119,21.29,0.5114,1.401,34.33
+SAT-C,highland,2023-10-22,0.3522,12.39,0.289,1.522,40.44
+SAT-A,coastal,2023-10-29,0.362,25.23,0.3221,1.26,40.58
+SAT-C,inland,2023-10-29,0.3329,22.26,0.4482,1.276,33.96
+SAT-A,highland,2023-10-29,0.326,10.67,0.2897,1.135,41.22

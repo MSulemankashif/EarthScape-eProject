@@ -1,0 +1,11 @@
+[
+  {
+    "user": "admin",
+    "category": "bug",
+    "subject": "Test ticket",
+    "message": "API smoke test",
+    "status": "open",
+    "created_at": "2026-10-15T19:04:26",
+    "_id": "feedback-1-1"
+  }
+]

@@ -90,15 +90,20 @@ class LocalHDFS:
         if not target.exists():
             return []
         if target.is_file():
-            return [str(target.relative_to(self.root))]
-        return sorted(str(p.relative_to(self.root))
+            return [self._rel(target, self.root)]
+        return sorted(self._rel(p, self.root)
                       for p in target.rglob("*") if p.is_file())
 
     def glob(self, pattern: str) -> List[str]:
         """Glob relative to the simulated HDFS root, e.g. /climate/**/part-*.csv"""
         rel = pattern.lstrip("/").replace("..", "")
-        return sorted(str(p.relative_to(self.root))
+        return sorted(self._rel(p, self.root)
                       for p in self.root.glob(rel) if p.is_file())
+
+    @staticmethod
+    def _rel(path: Path, root: Path) -> str:
+        """HDFS-style POSIX path (always forward slashes, even on Windows)."""
+        return path.relative_to(root).as_posix()
 
     def read_dataset(self, dataset_glob: str) -> pd.DataFrame:
         """Read and concatenate every partitioned part file of a dataset."""
@@ -210,7 +215,9 @@ def partition_and_store(df: pd.DataFrame, dataset: str, date_col: str,
                                               work[date_col].dt.month]):
         path = (f"/climate/{dataset}/year={int(year)}/month={int(month):02d}"
                 f"/part-00000.csv")
-        storage.put_dataframe(group.drop(columns=[date_col]), path)
+        # The date column stays inside the part-file so consumers keep full
+        # daily granularity; partition folders only accelerate pruning.
+        storage.put_dataframe(group, path)
         written.append(path)
     log.info("Stored %d partition(s) for dataset '%s'", len(written), dataset)
     return written

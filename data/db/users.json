@@ -1,0 +1,22 @@
+[
+  {
+    "username": "admin",
+    "email": "admin@earthscape.agency",
+    "password_hash": "scrypt:32768:8:1$EP13zygQJXcJz6ov$7473c6e76a0e119125dab455d3d36f314402c5474f3255d194b9bbb8b9180c1b605381dceaca69b224d9450a9d99c93017c057c0170e89f0e792c3b812807f9b",
+    "role": "admin",
+    "active": true,
+    "created_at": "2026-10-15T19:03:24",
+    "last_login": "2026-10-15T19:04:18",
+    "_id": "users-1-1"
+  },
+  {
+    "username": "analyst",
+    "email": "analyst@earthscape.agency",
+    "password_hash": "scrypt:32768:8:1$UhcajdVkhV47R7JC$6f20d632574a1b8c149757522b38f53de9d21b17b2f3d74ce6e249db169e9845a31065d698ae8eb184f6eab0afa66927c703c3117a52c2e5e061fde3e825317a",
+    "role": "analyst",
+    "active": true,
+    "created_at": "2026-10-15T19:03:24",
+    "last_login": null,
+    "_id": "users-2-2"
+  }
+]
