@@ -57,7 +57,7 @@
         "/climate/weather/year=2024/month=12/part-00000.csv"
       ],
       "partition_count": 36,
-      "ingested_at": "2026-10-15T19:03:13"
+      "ingested_at": "2026-10-15T19:13:21"
     },
     "sensors": {
       "rows": 20000,
@@ -79,7 +79,7 @@
         "/climate/sensors/year=2026/month=10/part-00000.csv"
       ],
       "partition_count": 4,
-      "ingested_at": "2026-10-15T19:03:13"
+      "ingested_at": "2026-10-15T19:13:21"
     },
     "satellite": {
       "rows": 468,
@@ -134,7 +134,7 @@
         "/climate/satellite/year=2026/month=10/part-00000.csv"
       ],
       "partition_count": 37,
-      "ingested_at": "2026-10-15T19:03:13"
+      "ingested_at": "2026-10-15T19:13:21"
     }
   }
 }
