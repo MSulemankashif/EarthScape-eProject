@@ -122,6 +122,12 @@ export default function Admin() {
         <div className="grid-2">
           <div className="card">
             <h3>👥 Users ({users.length})</h3>
+            <p className="muted" style={{ marginTop: -4 }}>
+              The platform seeds two demo accounts — <strong>admin</strong> and{' '}
+              <strong>analyst</strong>. New people can register themselves from
+              the sign-in page (they always start as analysts); promote anyone
+              to admin here.
+            </p>
             <div className="table-wrap">
               <table>
                 <thead>

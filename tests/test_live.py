@@ -18,9 +18,9 @@ from src.live import openweather as ow
 # ---------------------------------------------------------------------------
 # Fake OpenWeather payloads
 # ---------------------------------------------------------------------------
-def _weather_payload(city="Karachi", temp=33.4):
+def _weather_payload(city="Karachi", temp=33.4, dt=1760000000):
     return {
-        "dt": 1760000000,
+        "dt": dt,
         "timezone": 18000,                     # UTC+5 (Pakistan)
         "name": city,
         "main": {"temp": temp, "feels_like": 36.1, "humidity": 61,
@@ -58,8 +58,15 @@ def _forecast_payload(tz=18000):
     return {"city": {"timezone": tz}, "list": items}
 
 
-def make_fake_http(fail_air=False, calls=None):
-    """Return a fake `_http_get` that serves canned responses by URL."""
+def make_fake_http(fail_air=False, calls=None, advance=True):
+    """
+    Return a fake `_http_get` that serves canned responses by URL.
+
+    `advance=True` moves each successive weather observation 15 minutes into
+    the future (like a city whose data really refreshed); `advance=False`
+    re-serves the exact same observation — which the sync must deduplicate.
+    """
+    tick = {"n": 0}
 
     def fake(url, tries=2):
         if calls is not None:
@@ -71,7 +78,9 @@ def make_fake_http(fail_air=False, calls=None):
         if "forecast?" in url:
             return _forecast_payload()
         if "weather?" in url:
-            return _weather_payload()
+            tick["n"] += 1
+            dt = 1760000000 + (tick["n"] * 900 if advance else 0)
+            return _weather_payload(dt=dt)
         raise ow.OpenWeatherError(f"Unexpected URL: {url}")
 
     return fake
@@ -210,14 +219,42 @@ def test_sync_writes_partitions_catalog_and_csv(live_env):
 
 
 def test_sync_appends_across_runs(live_env):
-    ow.sync(force=True)
-    ow.sync(force=True, include_forecast=False)
+    r1 = ow.sync(force=True)
+    r2 = ow.sync(force=True, include_forecast=False)
+    assert r1["stored"] == 12 and r2["stored"] == 12   # genuinely new rows
+    assert r1["unchanged"] == 0 and r2["unchanged"] == 0
 
     storage = ow.get_storage()
     stored = storage.read_dataset("/climate/openweather_current/**/*.csv")
     assert len(stored) == 24                      # append, never overwrite
     # newest sync recorded latest
     assert ow.status()["last_sync_rows"] == 12
+
+
+def test_sync_skips_unchanged_observations_and_duplicate_alerts(live_env,
+                                                               monkeypatch):
+    """
+    OpenWeather re-serves the same observation between city refreshes —
+    those rows must be deduplicated (the explorer table would otherwise fill
+    with identical lines) and must NOT re-fire alert rules every sync.
+    """
+    monkeypatch.setattr(ow, "_http_get", make_fake_http(advance=False))
+    fired = []
+
+    r1 = ow.sync(on_reading=lambda row: fired.append(row) or [], force=True)
+    assert r1["stored"] == 12 and r1["unchanged"] == 0
+    assert len(fired) == 12
+
+    # Same observation served again 30 seconds later:
+    r2 = ow.sync(on_reading=lambda row: fired.append(row) or [], force=True)
+    assert r2["stored"] == 0 and r2["unchanged"] == 12
+    assert "unchanged skipped" in r2["message"]
+    assert len(fired) == 12                       # no duplicate evaluations
+    assert ow.status()["last_sync_stored"] == 0
+
+    stored = ow.get_storage().read_dataset(
+        "/climate/openweather_current/**/*.csv")
+    assert len(stored) == 12                      # no duplicate rows stored
 
 
 def test_sync_cooldown_skips_unless_forced(live_env):

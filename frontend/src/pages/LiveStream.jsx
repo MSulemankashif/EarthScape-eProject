@@ -12,7 +12,7 @@ import {
 import api, { errorMessage } from '../api/client.js'
 import { useAuth } from '../context/AuthContext.jsx'
 import { PageHeader } from '../components/Layout.jsx'
-import { Spinner, EmptyState, weatherEmoji, aqiInfo, timeAgo } from '../components/ui.jsx'
+import { Spinner, EmptyState, weatherEmoji, aqiInfo, timeAgo, prettyDateTime } from '../components/ui.jsx'
 import { useToast } from '../context/ToastContext.jsx'
 
 const CHART_METRICS = [
@@ -136,7 +136,7 @@ export default function LiveWeather() {
         </EmptyState>
       ) : (
         <>
-          <div className="city-grid">
+          <div className="city-grid rise">
             {readings.map((r) => {
               const aqi = aqiInfo(r.aqi)
               return (
@@ -161,6 +161,12 @@ export default function LiveWeather() {
                     <span>💧 Humidity <b>{r.humidity_pct ?? '—'}%</b></span>
                     <span>💨 Wind <b>{r.wind_speed_kph ?? '—'} kph</b></span>
                     <span>🍃 PM2.5 <b>{r.pm25 ?? '—'}</b></span>
+                    {(r.sunrise || r.sunset) && (
+                      <span>
+                        🌅 {r.sunrise?.slice(11, 16) ?? '—'}
+                        {' · '}🌇 {r.sunset?.slice(11, 16) ?? '—'}
+                      </span>
+                    )}
                   </div>
                 </div>
               )
@@ -219,7 +225,10 @@ export default function LiveWeather() {
                       <tr key={r.station_id}>
                         <td>{r.station_id}</td>
                         <td>{r.city}</td>
-                        <td className="muted">{r.date?.slice(0, 16)}</td>
+                        <td className="muted">
+                          {prettyDateTime(r.date)}
+                          <div className="small">{timeAgo(r.date)}</div>
+                        </td>
                         <td>{r.temperature_c ?? '—'}</td>
                         <td>{r.feels_like_c ?? '—'}</td>
                         <td>{r.humidity_pct ?? '—'}</td>

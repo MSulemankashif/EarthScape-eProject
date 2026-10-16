@@ -54,6 +54,14 @@ observations, refreshed every 10 minutes (plus on demand). The free tier allows
 60 calls/minute; a 30-second cooldown between manual syncs protects that quota.
 The key sits in `src/config.py` and can be overridden with `OPENWEATHER_API_KEY`.
 
+**Q: Why don't the same rows repeat after every sync?**
+Because a row is only stored when an observation is *genuinely new*. OpenWeather
+re-serves the same city observation between its ~10–30 minute refreshes, so the
+sync skips any `(station, timestamp)` already in storage (and reports
+“*0 new · 12 unchanged skipped*”). Alert rules likewise evaluate only the new
+readings — no duplicate table lines, no repeated alerts. The Data Explorer also
+shows the exact time (`16 Oct · 19:05`), so distinct observations are obvious.
+
 **Q: Why are CO₂ and sea level always “—”?**
 OpenWeatherMap offers no outdoor CO₂ or sea-level sensor, so those columns are
 honestly stored as *missing* rather than faked — and every chart, average and

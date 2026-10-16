@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import api, { errorMessage } from '../api/client.js'
 import { PageHeader } from '../components/Layout.jsx'
-import { Spinner, weatherEmoji } from '../components/ui.jsx'
+import { Spinner, weatherEmoji, prettyDateTime, timeAgo } from '../components/ui.jsx'
 
 const DATASETS = [
   { key: 'openweather_current', label: 'Current observations (live)' },
@@ -145,7 +145,8 @@ export default function DataExplorer() {
             <table>
               <thead>
                 <tr>
-                  <th>Date</th><th>Station</th><th>City</th><th>Region</th>
+                  <th>{isForecast ? 'Forecast slot (city time)' : 'Observed'}</th>
+                  <th>Station</th><th>City</th><th>Region</th>
                   <th>Now</th><th>Temp °C</th><th>Humidity %</th><th>Rain mm</th>
                   {isForecast ? <th>Rain %</th> : <th>PM2.5</th>}
                   <th>Wind</th>
@@ -154,7 +155,10 @@ export default function DataExplorer() {
               <tbody>
                 {rows.map((r, i) => (
                   <tr key={i}>
-                    <td>{r.date}</td>
+                    <td>
+                      {prettyDateTime(r.date)}
+                      <div className="muted small">{timeAgo(r.date)}</div>
+                    </td>
                     <td>{r.station_id}</td>
                     <td>{r.city}</td>
                     <td><span className="tag">{r.region ?? '—'}</span></td>

@@ -72,9 +72,23 @@ export function aqiInfo(aqi) {
 
 export function timeAgo(iso) {
   if (!iso) return 'never'
-  const secs = Math.max(0, (Date.now() - new Date(iso).getTime()) / 1000)
-  if (secs < 60) return `${Math.round(secs)}s ago`
-  if (secs < 3600) return `${Math.round(secs / 60)}m ago`
-  if (secs < 86400) return `${Math.round(secs / 3600)}h ago`
+  const diff = Date.now() - new Date(iso).getTime()
+  const past = diff >= 0
+  const secs = Math.abs(diff) / 1000
+  const suffix = past ? ' ago' : ' from now'
+  if (secs < 60) return past ? 'just now' : 'in seconds'
+  if (secs < 3600) return `${Math.round(secs / 60)}m${suffix}`
+  if (secs < 86400) return `${Math.round(secs / 3600)}h${suffix}`
   return new Date(iso).toLocaleString()
+}
+
+/* "2026-10-16T18:42:33" -> "16 Oct · 18:42" (warm, compact table stamp) */
+export function prettyDateTime(iso) {
+  if (!iso) return '—'
+  const d = new Date(String(iso).replace(' ', 'T'))
+  if (Number.isNaN(d.getTime())) return String(iso)
+  const day = d.toLocaleDateString(undefined, { day: 'numeric', month: 'short' })
+  const time = d.toLocaleTimeString(undefined,
+    { hour: '2-digit', minute: '2-digit', hour12: false })
+  return `${day} · ${time}`
 }

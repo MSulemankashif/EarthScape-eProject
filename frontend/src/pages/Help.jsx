@@ -25,6 +25,16 @@ const FAQ = [
       <code> OPENWEATHER_API_KEY</code> environment variable.</>,
   },
   {
+    q: 'Why don’t the same rows repeat after every sync?',
+    a: <>A row is stored only when an observation is <em>genuinely new</em>.
+      OpenWeather re-serves the same city observation between its ~10–30 minute
+      refreshes, so sync skips anything already in storage (you’ll see
+      “<em>0 new · 12 unchanged skipped</em>” in the result). Alert rules only
+      evaluate the new readings too — no duplicate rows, no repeated alerts.
+      The table shows the exact time (<code>16 Oct · 19:05</code>), so every
+      distinct observation is easy to spot.</>,
+  },
+  {
     q: 'Why are CO₂ and sea level always “—”?',
     a: <>OpenWeatherMap has no outdoor CO₂ or sea-level sensor, so those columns are
       honestly stored as missing instead of being faked. The platform treats them the
@@ -52,6 +62,15 @@ const FAQ = [
       <code> temperature_c &gt; 45 °C</code>). The engine evaluates every incoming reading
       against all enabled rules. Admins can add, edit, enable, disable and delete rules
       on the <strong>Alerts</strong> page — no code needed.</>,
+  },
+  {
+    q: 'Are there only two users — admin and analyst?',
+    a: <>Those are just the two <em>demo</em> accounts that ship with the app so
+      you can sign in instantly. Anyone can create their own account from the
+      login page (<strong>“New to EarthScape? Create an account”</strong>) —
+      new members always start as <strong>analysts</strong>, and an admin can
+      promote someone to full admin from the
+      <strong> Admin Console → Users</strong> table.</>,
   },
   {
     q: 'Who can see what?',

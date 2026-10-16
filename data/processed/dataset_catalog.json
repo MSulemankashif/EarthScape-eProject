@@ -137,7 +137,7 @@
       "ingested_at": "2026-10-16T18:01:42"
     },
     "openweather_current": {
-      "rows": 168,
+      "rows": 12,
       "columns": [
         "station_id",
         "city",
@@ -175,10 +175,10 @@
         "climate/openweather_current/year=2026/month=10/part-00000.csv"
       ],
       "partition_count": 1,
-      "ingested_at": "2026-10-16T18:52:10"
+      "ingested_at": "2026-10-16T19:21:15"
     },
     "openweather_forecast": {
-      "rows": 6720,
+      "rows": 480,
       "columns": [
         "station_id",
         "city",
@@ -205,7 +205,7 @@
         "climate/openweather_forecast/year=2026/month=10/part-00000.csv"
       ],
       "partition_count": 1,
-      "ingested_at": "2026-10-16T18:52:10"
+      "ingested_at": "2026-10-16T19:21:15"
     }
   }
 }

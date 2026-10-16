@@ -370,7 +370,9 @@ def api_readings():
 
     total = len(df)
     slice_ = df.iloc[(page - 1) * size: page * size].copy()
-    slice_["date"] = slice_["date"].dt.strftime("%Y-%m-%d")
+    # keep the FULL timestamp: live rows arrive ~every 10 minutes and the UI
+    # shows "16 Oct - 18:42" - truncating to a date made rows look identical
+    slice_["date"] = slice_["date"].dt.strftime("%Y-%m-%dT%H:%M:%S")
     records = json_safe(slice_.to_dict(orient="records"))
     return jsonify({"readings": records, "total": total, "page": page,
                     "pages": (total + size - 1) // size, "size": size})

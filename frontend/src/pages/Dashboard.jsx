@@ -4,13 +4,14 @@
  * cities, synced on a timer (and on demand with the ☁ Sync button).
  */
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import {
   LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer,
 } from 'recharts'
 import api, { errorMessage } from '../api/client.js'
 import StatCard from '../components/StatCard.jsx'
 import { PageHeader, greetingFor } from '../components/Layout.jsx'
-import { Spinner, EmptyState, weatherEmoji, timeAgo } from '../components/ui.jsx'
+import { Spinner, EmptyState, weatherEmoji, timeAgo, prettyDateTime } from '../components/ui.jsx'
 import { useToast } from '../context/ToastContext.jsx'
 
 const CHART_METRICS = [
@@ -109,6 +110,11 @@ export default function Dashboard() {
   useEffect(() => { load() }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const avg = summary?.averages || {}
+  const points = trend?.points || []
+  const lastPt = points.length >= 1 ? points[points.length - 1] : null
+  const prevPt = points.length >= 2 ? points[points.length - 2] : null
+  const delta = (lastPt && prevPt)
+    ? Math.round((lastPt.value - prevPt.value) * 10) / 10 : null
 
   if (loading) {
     return <Spinner label="Checking the skies…" />
@@ -178,7 +184,7 @@ export default function Dashboard() {
 
       {summary?.available && (
         <>
-          <div className="stat-grid">
+          <div className="stat-grid rise">
             <StatCard label="Avg Temperature" value={`${avg.temperature_c ?? '—'} °C`} icon="🌡️" />
             <StatCard label="Avg Humidity" value={`${avg.humidity_pct ?? '—'} %`} icon="💧" />
             <StatCard label="Avg Wind" value={`${avg.wind_speed_kph ?? '—'} kph`} icon="💨" />
@@ -187,11 +193,40 @@ export default function Dashboard() {
             <StatCard label="Missing Values" value={summary.missing_values} icon="⚠️" />
           </div>
 
-          <div className="card">
+          <div className="card rise">
+            <div className="card-head">
+              <h3 style={{ margin: 0 }}>🌤️ Right now across Pakistan</h3>
+              <Link to="/live" className="muted" style={{ margin: 0 }}>
+                Open Live Weather →
+              </Link>
+            </div>
+            <div className="city-strip">
+              {summary.latest_by_station.map((r) => (
+                <Link to="/live" className="strip-chip" key={r.station_id}
+                  title={`${r.city} · ${r.weather_main ?? ''} · PM2.5 ${r.pm25 ?? '—'}`}>
+                  <span className="strip-emoji" aria-hidden="true">
+                    {weatherEmoji(r.weather_main)}
+                  </span>
+                  <span className="strip-city">{r.city}</span>
+                  <span className="strip-temp">{r.temperature_c ?? '—'}°</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div className="card rise">
             <div className="card-head">
               <h3 style={{ margin: 0 }}>
                 {activeMetric.label} trend
                 <span className="muted" style={{ fontWeight: 400 }}> · {freqHint}</span>
+                {delta !== null && (
+                  <span className="tag" title="Latest step vs the previous one">
+                    {delta >= 0 ? '▲' : '▼'} {Math.abs(delta)} {activeMetric.unit}
+                  </span>
+                )}
+                {lastPt && (
+                  <span className="tag tag-info">now {lastPt.value} {activeMetric.unit}</span>
+                )}
               </h3>
               <label className="muted" style={{ margin: 0 }}>
                 Metric
@@ -251,7 +286,10 @@ export default function Dashboard() {
                       <td className={r.pm25 > 150 ? 'danger-text' : ''}>
                         {r.pm25 ?? '—'}
                       </td>
-                      <td className="muted">{r.date?.slice(0, 16)}</td>
+                      <td className="muted">
+                        {prettyDateTime(r.date)}
+                        <div className="small">{timeAgo(r.date)}</div>
+                      </td>
                     </tr>
                   ))}
                 </tbody>

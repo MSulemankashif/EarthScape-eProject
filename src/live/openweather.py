@@ -94,6 +94,8 @@ _state: dict = {
     "sync_count": 0,
     "last_error": None,
     "last_partial_errors": [],
+    "last_stored": 0,              # genuinely new observations last sync
+    "last_unchanged": 0,           # re-served observations skipped
 }
 _forecast_cache: dict[str, tuple[float, list[dict]]] = {}
 
@@ -274,23 +276,45 @@ def fetch_forecast(city: dict) -> list[dict]:
 # Storage helpers (append-friendly, unlike partition_and_store which overwrites)
 # ---------------------------------------------------------------------------
 def _store_append(df: pd.DataFrame, dataset: str,
-                  date_col: str = "date") -> list[str]:
-    """Append rows to /climate/<dataset>/year=/month=/ part-files."""
+                  date_col: str = "date") -> tuple[list[str], int]:
+    """
+    Append rows to /climate/<dataset>/year=/month=/ part-files.
+
+    Rows whose (station, timestamp) already exists are skipped — OpenWeather
+    only refreshes a city every ~10–30 minutes, so consecutive syncs often
+    re-serve the very same observation and must not create duplicate rows.
+    The rolling forecast dataset additionally forgets slots older than 12 h.
+
+    Returns (partitions_written, rows_actually_added).
+    """
     storage = get_storage()
     work = df.copy()
     work[date_col] = pd.to_datetime(work[date_col], errors="coerce")
     work = work.dropna(subset=[date_col])
     written: list[str] = []
+    added = 0
     for (year, month), group in work.groupby([work[date_col].dt.year,
                                               work[date_col].dt.month]):
         path = (f"/climate/{dataset}/year={int(year)}/"
                 f"month={int(month):02d}/part-00000.csv")
         if storage.exists(path):
             existing = storage.read_dataframe(path)
-            group = pd.concat([existing, group], ignore_index=True)
-        storage.put_dataframe(group, path)
+            existing[date_col] = pd.to_datetime(existing[date_col],
+                                                errors="coerce")
+            if dataset == FORECAST_DATASET:
+                # rolling 5-day window: forget slots already in the past
+                cutoff = pd.Timestamp.now() - pd.Timedelta(hours=12)
+                existing = existing[existing[date_col] >= cutoff]
+            merged = pd.concat([existing, group], ignore_index=True)
+        else:
+            existing = group.iloc[0:0]
+            merged = group
+        merged = merged.drop_duplicates(subset=["station_id", date_col],
+                                        keep="last")
+        added += len(merged) - len(existing)
+        storage.put_dataframe(merged, path)
         written.append(path)
-    return written
+    return written, added
 
 
 def export_dataset_csv(dataset: str) -> str | None:
@@ -384,14 +408,29 @@ def sync(include_forecast: bool | None = None,
                 else:
                     fc_rows.extend(outcome)
 
-    # 3) clean + store (append so repeated syncs build live history)
-    current_df = _clean(rows)
-    partitions = _store_append(current_df, CURRENT_DATASET)
+    # 3) clean + store. OpenWeather re-serves the same observation between
+    #    city refreshes, so rows already stored (station+timestamp) count as
+    #    "unchanged": they are skipped and must not re-fire alerts either.
+    storage = get_storage()
+    prior = storage.read_dataset(f"/climate/{CURRENT_DATASET}/**/*.csv")
+    prior_keys: set = set()
+    if not prior.empty and "date" in prior.columns:
+        prior["date"] = pd.to_datetime(prior["date"], errors="coerce")
+        prior_keys = set(zip(prior["station_id"], prior["date"]))
+
+    current_df = _clean(rows).drop(columns=["_dt"], errors="ignore")
+    current_df["_dt"] = pd.to_datetime(current_df["date"], errors="coerce")
+    fresh = [(sid, dt) not in prior_keys
+             for sid, dt in zip(current_df["station_id"], current_df["_dt"])]
+    new_df = current_df.loc[fresh].drop(columns=["_dt"])
+    unchanged = len(rows) - len(new_df)
+
+    partitions, stored_now = _store_append(current_df.drop(columns=["_dt"]),
+                                           CURRENT_DATASET)
     if fc_rows:
         _store_append(_clean(fc_rows), FORECAST_DATASET)
 
     # 4) catalog + flat CSVs for MapReduce / external tools
-    storage = get_storage()
     for dataset in (CURRENT_DATASET, FORECAST_DATASET) if fc_rows \
             else (CURRENT_DATASET,):
         full = storage.read_dataset(f"/climate/{dataset}/**/*.csv")
@@ -404,10 +443,11 @@ def sync(include_forecast: bool | None = None,
         )
         export_dataset_csv(dataset)
 
-    # 5) alert rules evaluate every live reading
+    # 5) alert rules evaluate genuinely NEW readings only — an unchanged
+    #    observation re-served by the API must never raise duplicate alerts
     fired = 0
     if on_reading:
-        for row in rows:
+        for row in new_df.to_dict(orient="records"):
             try:
                 fired += len(on_reading(row) or [])
             except Exception as exc:                # pragma: no cover
@@ -422,15 +462,24 @@ def sync(include_forecast: bool | None = None,
         "sync_count": _state["sync_count"] + 1,
         "last_error": None,
         "last_partial_errors": errors,
+        "last_stored": int(stored_now),
+        "last_unchanged": int(unchanged),
     })
-    log.info("Live sync complete: %d cities in %.2fs (%d forecast rows, "
-             "%d alert(s)%s)", len(rows), duration, len(fc_rows), fired,
+    log.info("Live sync complete: %d cities in %.2fs (%d new, %d unchanged, "
+             "%d forecast rows, %d alert(s)%s)", len(rows), duration,
+             stored_now, unchanged, len(fc_rows), fired,
              f", {len(errors)} partial error(s)" if errors else "")
 
+    message = (f"Fetched live conditions for {len(rows)} cities in {duration}s"
+               f" · {len(new_df)} new observation(s)"
+               + (f", {unchanged} unchanged skipped" if unchanged else "")
+               + ".")
     return {
         "skipped": False,
-        "message": f"Fetched live conditions for {len(rows)} cities in {duration}s.",
+        "message": message,
         "readings": len(rows),
+        "stored": int(stored_now),
+        "unchanged": int(unchanged),
         "forecast_rows": len(fc_rows),
         "alerts_fired": fired,
         "duration_seconds": duration,
@@ -496,6 +545,8 @@ def status() -> dict:
         "next_auto_sync_in_min": next_in,
         "last_sync_at": _state["last_sync_at"],
         "last_sync_rows": len(_state["rows"]),
+        "last_sync_stored": _state["last_stored"],
+        "last_sync_unchanged": _state["last_unchanged"],
         "last_duration_seconds": _state["duration_seconds"],
         "sync_count": _state["sync_count"],
         "last_error": _state["last_error"],
@@ -509,6 +560,6 @@ def reset_state() -> None:
     _state.update({k: v for k, v in {
         "last_sync_ts": 0.0, "last_sync_at": None, "rows": [],
         "duration_seconds": None, "sync_count": 0, "last_error": None,
-        "last_partial_errors": [],
+        "last_partial_errors": [], "last_stored": 0, "last_unchanged": 0,
     }.items()})
     _forecast_cache.clear()
