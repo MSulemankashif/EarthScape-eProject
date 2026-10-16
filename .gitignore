@@ -15,9 +15,11 @@ data/db/
 data/models/
 data/processed/
 logs/
+backups/
 
-# Scratch
+# Scratch / extracted working files
 doc_content.txt
+doc_check.txt
 *.log
 .DS_Store
 Thumbs.db

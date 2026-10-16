@@ -104,19 +104,27 @@ def authenticate(username: str, password: str) -> dict | None:
     return {k: v for k, v in user.items() if k != "password_hash"}
 
 
-# In-memory failed-attempt tracker: {username: {"count": n, "until": ts}}
+# In-memory failed-attempt tracker: {username: {count, until, last}}
 _failed_attempts: dict[str, dict] = {}
 MAX_LOGIN_ATTEMPTS = 5
 LOCKOUT_SECONDS = 300
+FAIL_WINDOW_SECONDS = 900        # strikes older than 15 min stop counting
 
 
 def _record_failure(username: str) -> None:
     """Count one failed login; lock the account after MAX_LOGIN_ATTEMPTS."""
     now = time.time()
     attempt = _failed_attempts.get(username)
-    if attempt is None or attempt["until"] < now:
-        attempt = {"count": 0, "until": 0.0}
+    if attempt is None:
+        attempt = {"count": 0, "until": 0.0, "last": 0.0}
+    elif attempt.get("until", 0.0) > 0 and attempt["until"] < now:
+        # A previous lockout has expired — start a fresh window
+        attempt = {"count": 0, "until": 0.0, "last": 0.0}
+    elif now - attempt.get("last", 0.0) > FAIL_WINDOW_SECONDS:
+        # Too long since the last failure — old strikes no longer count
+        attempt = {"count": 0, "until": 0.0, "last": 0.0}
     attempt["count"] += 1
+    attempt["last"] = now
     if attempt["count"] >= MAX_LOGIN_ATTEMPTS:
         attempt["until"] = now + LOCKOUT_SECONDS
         log.warning("Account locked for %ss after %d failed logins: %s",

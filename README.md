@@ -12,17 +12,19 @@ alerting and role-based access control.
 
 | Requirement | Implementation |
 |---|---|
-| User Authentication & Authorization | JWT-style signed tokens, roles: `admin`, `analyst` (`src/auth/`) |
+| User Authentication & Authorization | Signed expiring tokens, roles: `admin`, `analyst`, **brute-force lockout** (5 fails → 5 min) (`src/auth/`) |
 | Data Ingestion | Weather stations, sensor network, satellite CSVs + live readings (`src/ingestion/`) |
 | Data Storage (HDFS) | Partitioned `year=/month=/day=` layout; LocalHDFS simulation + real `hdfs` CLI backend (`src/hadoop/storage.py`) |
-| Data Processing (MapReduce) | Hadoop Streaming-compatible mapper/reducer pairs: monthly aggregation + z-score anomaly detection (`src/hadoop/mapreduce/`) |
+| Data Processing (MapReduce) | Hadoop Streaming-compatible mapper/reducer pairs: monthly aggregation + z-score anomaly detection, **every run timed** (`src/hadoop/mapreduce/`) |
 | Real-time Processing | Background stream simulator feeding the pipeline + alert engine (`src/streaming/`) |
-| Machine Learning | Isolation Forest anomalies, linear+seasonal trend forecasts, Pearson correlation (`src/ml/models.py`) |
-| Data Visualization | React dashboard with Recharts: KPIs, live charts, forecasts, correlation bars (`frontend/`) |
-| Notifications & Alerts | Configurable threshold rules, severity levels, persisted history, log/email/webhook dispatchers (`src/alerts/`) |
+| Machine Learning | Isolation Forest anomalies, linear+seasonal trend forecasts, Pearson correlation, **freshness metadata** (`src/ml/models.py`) |
+| Data Visualization | Humanized React dashboard: greeting shell, toasts, metric-selectable charts, friendly empty states, mobile drawer (`frontend/`) |
+| Notifications & Alerts | Configurable threshold rules, severity levels, persisted history, live sidebar bell badge, log/email/webhook dispatchers (`src/alerts/`) |
 | Feedback & Support | Ticket system with statuses, admin queue (`/feedback` page) |
-| Performance Monitoring | `/api/system/stats`: uptime, storage, logs, model status |
-| Security | Password hashing (PBKDF2-SHA256), role guards, path-traversal-safe storage, CORS lockdown |
+| Performance Monitoring | `/api/system/stats`: uptime, storage, logs, model status + **processing-time history & averages** |
+| **Data Backup** | Automated zips of users/alerts/models/results/logs → `backups/`, auto-prune (14), integrity **Verify**, REST + CLI (`src/utils/backup.py`) |
+| Security | PBKDF2-SHA256 hashing, login lockout, security headers (CSP/nosniff/frame-deny), role guards, path-traversal-safe storage, CORS lockdown |
+| Documentation | Guides + **in-app Help/FAQ**, **FAQ.md**, **demo video script**, `ReadMe.docx` |
 
 ---
 
@@ -101,7 +103,7 @@ Forecasts appear on the **Forecasts** page.
 EarthScape-eProject/
 ├── src/
 │   ├── api/app.py            Flask REST API (all endpoints)
-│   ├── auth/                 Authentication + role guards
+│   ├── auth/                 Authentication + role guards + lockout
 │   ├── hadoop/
 │   │   ├── storage.py        HDFS abstraction (local sim + real CLI)
 │   │   └── mapreduce/        Mapper/reducer pairs + job runner
@@ -110,10 +112,13 @@ EarthScape-eProject/
 │   ├── ml/models.py          Anomaly / trend / correlation models
 │   ├── alerts/               Threshold rule engine + dispatchers
 │   ├── db/                   MongoDB backend + JSON fallback
+│   ├── utils/backup.py       Automated data backups (zip + prune + verify)
 │   └── config.py             All tunables (paths, thresholds, modes)
-├── frontend/                 React SPA (Vite + Recharts)
-├── tests/                    93 pytest tests (unit + API integration)
-├── docs/                     User guide, developer guide, report
+├── frontend/                 React SPA (Vite + Recharts) — 10 pages
+│   └── src/pages/            Login, Dashboard, Live, Data, Analytics,
+│                             Forecasts, Alerts, Support, Help, Admin
+├── tests/                    109 pytest tests (unit + API integration)
+├── docs/                     Guides, report, FAQ, demo video script
 ├── scripts/                  Start scripts
 └── data/                     raw CSVs, HDFS sim, models, JSON db
 ```
@@ -149,17 +154,24 @@ EarthScape-eProject/
 - [User Guide](docs/USER_GUIDE.md)
 - [Developer Guide](docs/DEVELOPER_GUIDE.md)
 - [Project Report (problem definition, design, DFDs, flowcharts)](docs/PROJECT_REPORT.md)
+- [FAQ — user documentation](docs/FAQ.md) · in-app under **Help & FAQ**
+- [Demo Video Script](docs/DEMO_VIDEO_SCRIPT.md) — follow along while recording
+- [Tools Guide (Jupyter / Tableau / Impala / RStudio / Compass)](docs/TOOLS_GUIDE.md)
+- `ReadMe.docx` — Word copy of this file (generated for submission)
 
 ## ✅ Tests
 
 ```powershell
-python -m pytest tests/ -q      # 93 passed
+python -m pytest tests/ -q      # 109 passed
 ```
 
 ## 🔐 Security notes
 
 - Passwords hashed with PBKDF2-SHA256 (werkzeug), unique salt per user
 - Tokens signed (itsdangerous) with 8-hour expiry
+- **Brute-force lockout**: 5 failed logins lock the account for 5 minutes (HTTP 423)
+- **Security headers** on every response: CSP, `X-Content-Type-Options`,
+  `X-Frame-Options`, `X-XSS-Protection`, `Referrer-Policy`, `Cache-Control: no-store`
 - Anonymous users cannot self-register as admin
 - Storage layer strips `..` — path traversal impossible
 - CORS restricted to the Vite dev origin

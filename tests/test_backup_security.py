@@ -141,15 +141,23 @@ def test_security_headers_present(client):
 
 
 def test_login_lockout_response_423(client):
-    for _ in range(auth.MAX_LOGIN_ATTEMPTS):
+    # First four failures are plain 401s...
+    for _ in range(auth.MAX_LOGIN_ATTEMPTS - 1):
         res = client.post("/api/auth/login",
                           json={"username": "admin", "password": "bad"})
         assert res.status_code == 401
 
+    # ...the fifth failure trips the lock and says so (423 Locked)
+    res = client.post("/api/auth/login",
+                      json={"username": "admin", "password": "bad"})
+    assert res.status_code == 423
+    assert res.get_json()["lockout"]["locked"] is True
+
+    # Even the correct password is refused while locked
     res = client.post("/api/auth/login",
                       json={"username": "admin", "password": "admin@123"})
     assert res.status_code == 423
-    assert res.get_json()["lockout"]["locked"] is True
+    assert "locked" in res.get_json()["error"].lower()
     auth.clear_failures("admin")
 
 
@@ -205,11 +213,23 @@ def test_backup_roundtrip_via_api(client, auth_headers):
     assert res.status_code == 404
 
 
-def test_ml_status_reports_freshness(client, auth_headers):
+def test_ml_status_reports_freshness(client, auth_headers, monkeypatch):
+    # Give the trainer a small but real weather history to work with
+    import pandas as pd
+    dates = pd.date_range("2024-01-01", periods=120, freq="D")
+    df = pd.DataFrame({
+        "date": dates,
+        "station_id": ["STN-001"] * len(dates),
+        "temperature_c": [18 + 6 * (i % 30) / 30 for i in range(len(dates))],
+        "co2_ppm": [410 + i * 0.1 for i in range(len(dates))],
+        "rainfall_mm": [max(0.0, (i % 7) - 2) for i in range(len(dates))],
+    })
+    monkeypatch.setattr("src.api.app._weather_df", lambda limit=None: df)
+
     res = client.post("/api/analytics/ml/train", headers=auth_headers)
-    assert res.status_code == 200
+    assert res.status_code == 200, res.get_json()
     freshness = res.get_json()["freshness"]
-    assert freshness["rows_used"] > 0
+    assert freshness["rows_used"] == len(df)
     assert freshness["duration_seconds"] > 0
     assert freshness["trained_at"]
 

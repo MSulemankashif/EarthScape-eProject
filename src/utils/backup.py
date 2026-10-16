@@ -64,7 +64,8 @@ def create_backup(label: str = "") -> dict:
     """Zip every backup target into backups/earthscape_YYYYmmdd_HHMMSS.zip"""
     BACKUP_DIR.mkdir(parents=True, exist_ok=True)
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    safe_label = "".join(c for c in label if c.isalnum() or c in "-_")[:30]
+    safe_label = "".join(c if (c.isalnum() or c in "-_") else "_"
+                         for c in label.strip())[:30].strip("_")
     name = f"earthscape_{stamp}{('_' + safe_label) if safe_label else ''}.zip"
     archive = BACKUP_DIR / name
 

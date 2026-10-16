@@ -235,20 +235,35 @@ HDFS layout: `/climate/<dataset>/year=YYYY/month=MM/part-00000.csv`
 | 8 | Interactive dashboards | React pages (`frontend/src/pages/`) | manual + build |
 | 9 | Notifications & alerts (configurable) | `src/alerts/` + Alerts page | `test_alerts.py`, live smoke test |
 | 10 | Feedback & support | `/api/feedback` + Support page | `test_api.py` |
-| 11 | Performance monitoring | `/api/system/stats` + Admin page | `test_api.py` |
-| 12 | Data security | hashing, tokens, role guards, CORS, path-traversal safety | `test_auth_db.py`, `test_storage.py` |
+| 11 | Performance monitoring (incl. processing times) | `/api/system/stats` → `processing` history + Admin "Data-processing times" card | `test_backup_security.py` |
+| 12 | Data security | hashing, tokens, **login lockout**, **security headers**, role guards, CORS, path-traversal safety | `test_auth_db.py`, `test_backup_security.py` |
+| 13 | **Data backup (automated)** | `src/utils/backup.py` + `/api/system/backup(s)` + Admin "Back up now"/Verify | `test_backup_security.py` |
+| 14 | ML models regularly updated | training records freshness (`trained_at`, `rows_used`, duration); chips in UI | `test_backup_security.py` |
+| 15 | Customizable visualization | metric selectors on Dashboard/Live/Forecasts, station+date filters, severity filters | manual + build |
+| 16 | Real-time notifications in UI | sidebar bell badges new warning/critical alerts (30 s poll) | manual + build |
+| 17 | Humanized UI | greeting shell, toasts, spinners, empty-state guidance, modals, mobile drawer, Help/FAQ page | `npm run build` + manual |
 
 ## 5. Non-functional coverage
 
-- **Reliability** — atomic JSON writes (tmp+replace), rotating logs, alert
-  dispatcher wrapped in try/except, missing-file tolerant ingestion.
+- **Reliability / Data Backup** — `python -m src.utils.backup` (or the Admin
+  Console button) zips users, alerts, tickets, models, processed results and logs
+  into timestamped archives; newest 14 auto-pruned; integrity **Verify** endpoint;
+  HDFS tree excluded as regenerable. Rotate via Task Scheduler/cron for the
+  "regular automated backups" requirement.
 - **Scalability** — partitioned storage enables date pruning; MapReduce jobs
   scale to a real cluster via `EARTHSCAPE_MODE=hadoop`; horizontal API
   scaling possible behind a load balancer (stateless tokens).
 - **Performance monitoring** — uptime, storage bytes, log sizes, alert/model
-  stats exposed at `/api/system/stats`.
-- **Compliance** — CSV exports compatible with Impala/Tableau/Jupyter; strict
-  JSON (NaN→null); documented assumptions.
+  stats **plus a processing-time history** (job name, rows, duration, finished_at)
+  and session averages at `/api/system/stats`.
+- **Data security** — PBKDF2 password hashing, signed expiring tokens,
+  brute-force lockout (5 fails → 5 min → HTTP 423), response security headers
+  (CSP, nosniff, frame-deny, no-store), CORS allow-list, path-traversal-safe
+  storage; HTTPS terminated at Apache in production (see INSTALLATION.md).
+- **Documentation (user FAQs/tutorials)** — `docs/FAQ.md` + in-app **Help & FAQ**
+  page with a 4-step tour; `docs/DEMO_VIDEO_SCRIPT.md` for the video deliverable.
+- **Compliance** — CSV exports compatible with Impala/Tableau/Jupyter/RStudio
+  (`docs/TOOLS_GUIDE.md`); strict JSON (NaN→null); documented assumptions.
 
 ## 6. Test data used
 

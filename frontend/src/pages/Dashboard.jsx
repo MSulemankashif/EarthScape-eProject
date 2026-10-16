@@ -1,21 +1,38 @@
 /**
- * Dashboard - KPI cards, national averages, station snapshot and the
- * monthly temperature trend chart. Also triggers data ingestion when the
- * storage is still empty.
+ * Dashboard - the friendly "how is our planet doing?" home screen.
+ * KPI cards, a customizable trend chart (pick any metric), the latest
+ * reading per station, and a guided 3-step first run.
  */
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import {
   LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer,
 } from 'recharts'
 import api, { errorMessage } from '../api/client.js'
 import StatCard from '../components/StatCard.jsx'
+import { PageHeader, greetingFor } from '../components/Layout.jsx'
+import { Spinner, EmptyState } from '../components/ui.jsx'
+import { useToast } from '../context/ToastContext.jsx'
+
+const CHART_METRICS = [
+  { key: 'temperature_c', label: 'Temperature', unit: '°C', color: '#5aabff' },
+  { key: 'co2_ppm', label: 'CO₂', unit: 'ppm', color: '#ffb45c' },
+  { key: 'pm25', label: 'PM2.5', unit: 'µg/m³', color: '#ff6b7a' },
+  { key: 'rainfall_mm', label: 'Rainfall', unit: 'mm', color: '#4fd1c5' },
+  { key: 'humidity_pct', label: 'Humidity', unit: '%', color: '#46d9a3' },
+  { key: 'sea_level_mm', label: 'Sea level', unit: 'mm', color: '#c084fc' },
+]
 
 export default function Dashboard() {
   const [summary, setSummary] = useState(null)
   const [trend, setTrend] = useState(null)
   const [health, setHealth] = useState(null)
-  const [notice, setNotice] = useState('')
+  const [loading, setLoading] = useState(true)
   const [busy, setBusy] = useState(false)
+  const [metric, setMetric] = useState('temperature_c')
+  const toast = useToast()
+
+  const greeting = useMemo(() => greetingFor(new Date().getHours()), [])
+  const activeMetric = CHART_METRICS.find((m) => m.key === metric) || CHART_METRICS[0]
 
   const load = async () => {
     try {
@@ -26,58 +43,106 @@ export default function Dashboard() {
       setSummary(s.data)
       setHealth(h.data)
       if (s.data.available) {
-        const t = await api.get('/analytics/timeseries?metric=temperature_c&months=36')
+        const t = await api.get(`/analytics/timeseries?metric=${metric}&months=36`)
         setTrend(t.data)
+      } else {
+        setTrend(null)
       }
     } catch (err) {
-      setNotice(errorMessage(err))
+      toast.error(errorMessage(err), { title: 'Could not reach the backend' })
+    } finally {
+      setLoading(false)
     }
   }
 
+  /* Reload just the chart when the metric changes */
+  useEffect(() => {
+    if (!summary?.available) return
+    api.get(`/analytics/timeseries?metric=${metric}&months=36`)
+      .then(({ data }) => setTrend(data))
+      .catch((err) => toast.error(errorMessage(err)))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [metric])
+
   const ingest = async () => {
     setBusy(true)
-    setNotice('')
+    const started = Date.now()
     try {
       const { data } = await api.post('/data/ingest')
       const rows = data.results.reduce((a, r) => a + (r.rows_ingested || 0), 0)
-      setNotice(`Ingested ${rows} rows across ${data.results.length} datasets ✅`)
+      const secs = ((Date.now() - started) / 1000).toFixed(1)
+      toast.success(
+        `${rows.toLocaleString()} rows loaded across ${data.results.length} datasets in ${secs}s`,
+        { title: 'Ingestion complete' },
+      )
       await load()
     } catch (err) {
-      setNotice(errorMessage(err))
+      toast.error(errorMessage(err), { title: 'Ingestion failed' })
     } finally {
       setBusy(false)
     }
   }
 
-  useEffect(() => { load() }, [])
+  useEffect(() => { load() }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const avg = summary?.averages || {}
 
+  if (loading) {
+    return <Spinner label="Waking up the dashboard…" />
+  }
+
   return (
     <div>
-      <header className="page-header">
-        <div>
-          <h2>Climate Overview</h2>
-          <p className="muted">
-            {summary?.available
-              ? `${summary.stations} stations · ${summary.total_readings.toLocaleString()} readings · ${summary.date_range.start} → ${summary.date_range.end}`
-              : 'No dataset loaded yet'}
-          </p>
-        </div>
-        <button className="btn btn-primary" onClick={ingest} disabled={busy}>
-          {busy ? 'Ingesting…' : '⚙ Run Ingestion Pipeline'}
-        </button>
-      </header>
-
-      {notice && <div className="alert alert-info">{notice}</div>}
+      <PageHeader
+        title={`${greeting.text}, ${greeting.icon}`}
+        wave
+        subtitle={summary?.available
+          ? `Here's how our planet is doing today — ${summary.stations} stations reporting `
+            + `· ${summary.total_readings.toLocaleString()} readings · `
+            + `${summary.date_range.start} → ${summary.date_range.end}`
+          : 'Your climate warehouse is warmed up and waiting for its first dataset.'}
+        actions={(
+          <>
+            <span className="status-chip" title="API backend">
+              <span className="dot" aria-hidden="true" />
+              {health?.storage_backend || '…'} · {health?.database_backend || '…'}
+            </span>
+            <button className="btn btn-warm" onClick={ingest} disabled={busy}>
+              {busy
+                ? <><span className="spinner spinner-sm" aria-hidden="true" /> Loading data…</>
+                : '⚙️ Load climate data'}
+            </button>
+          </>
+        )}
+      />
 
       {!summary?.available && (
-        <div className="card empty-state">
-          <h3>Welcome to EarthScape 👋</h3>
-          <p>Click <strong>Run Ingestion Pipeline</strong> to load the climate
-            datasets from the raw CSVs into HDFS-partitioned storage, then train
-            the ML models from the Analytics page.</p>
-        </div>
+        <EmptyState
+          emoji="🌱"
+          title="Let's fill your warehouse"
+        >
+          <p>
+            Three quick steps and every chart, model and alert on this platform comes alive.
+            It takes about ten seconds.
+          </p>
+          <div className="steps">
+            <div className="step">
+              <span className="step-num">1</span>
+              <strong>Load the data</strong>
+              <span>Press “Load climate data” above — raw CSVs get cleaned and stored in HDFS-style partitions.</span>
+            </div>
+            <div className="step">
+              <span className="step-num">2</span>
+              <strong>Train the models</strong>
+              <span>Head to Analytics &amp; ML and train the anomaly + trend detectors.</span>
+            </div>
+            <div className="step">
+              <span className="step-num">3</span>
+              <strong>Watch it live</strong>
+              <span>Start the Live Stream simulator and see readings turn into alerts in real time.</span>
+            </div>
+          </div>
+        </EmptyState>
       )}
 
       {summary?.available && (
@@ -91,24 +156,44 @@ export default function Dashboard() {
             <StatCard label="Storage" value={health?.storage_backend || '—'} icon="💾" />
           </div>
 
-          {trend?.points?.length > 0 && (
-            <div className="card">
-              <h3>National Average Temperature (monthly)</h3>
+          <div className="card">
+            <div className="card-head">
+              <h3 style={{ margin: 0 }}>
+                {activeMetric.label} trend
+                <span className="muted" style={{ fontWeight: 400 }}> · monthly average, last 3 years</span>
+              </h3>
+              <label className="muted" style={{ margin: 0 }}>
+                Metric
+                <select value={metric} onChange={(e) => setMetric(e.target.value)}
+                  aria-label="Choose chart metric"
+                  style={{ width: 'auto', marginLeft: 8, marginTop: 0 }}>
+                  {CHART_METRICS.map((m) => (
+                    <option key={m.key} value={m.key}>{m.label} ({m.unit})</option>
+                  ))}
+                </select>
+              </label>
+            </div>
+            {trend?.points?.length > 0 ? (
               <ResponsiveContainer width="100%" height={280}>
                 <LineChart data={trend.points}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#243044" />
-                  <XAxis dataKey="date" stroke="#8aa0b8" fontSize={12} />
-                  <YAxis stroke="#8aa0b8" fontSize={12} />
-                  <Tooltip contentStyle={{ background: '#16213a', border: '1px solid #2c3e57' }} />
-                  <Line type="monotone" dataKey="value" stroke="#4da3ff"
-                    strokeWidth={2} dot={false} name="°C" />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#2b3850" />
+                  <XAxis dataKey="date" stroke="#93a5bf" fontSize={12} />
+                  <YAxis stroke="#93a5bf" fontSize={12} />
+                  <Tooltip contentStyle={{
+                    background: '#1c2434', border: '1px solid #2b3850',
+                    borderRadius: 10,
+                  }} />
+                  <Line type="monotone" dataKey="value" stroke={activeMetric.color}
+                    strokeWidth={2.4} dot={false} name={activeMetric.unit} />
                 </LineChart>
               </ResponsiveContainer>
-            </div>
-          )}
+            ) : (
+              <p className="muted">No monthly data for this metric yet.</p>
+            )}
+          </div>
 
           <div className="card">
-            <h3>Latest Reading per Station</h3>
+            <h3>Latest reading per station</h3>
             <div className="table-wrap">
               <table>
                 <thead>

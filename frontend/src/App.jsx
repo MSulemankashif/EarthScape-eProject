@@ -14,6 +14,7 @@ import Alerts from './pages/Alerts.jsx'
 import LiveStream from './pages/LiveStream.jsx'
 import Feedback from './pages/Feedback.jsx'
 import Admin from './pages/Admin.jsx'
+import Help from './pages/Help.jsx'
 
 function Protected({ children }) {
   const { user } = useAuth()
@@ -41,6 +42,7 @@ export default function App() {
         <Route path="alerts" element={<Alerts />} />
         <Route path="live" element={<LiveStream />} />
         <Route path="feedback" element={<Feedback />} />
+        <Route path="help" element={<Help />} />
         <Route path="admin" element={<Admin />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />

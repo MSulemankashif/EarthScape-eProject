@@ -4,7 +4,10 @@
  * from the ingestion pipeline.
  */
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import api, { errorMessage } from '../api/client.js'
+import { PageHeader } from '../components/Layout.jsx'
+import { Spinner } from '../components/ui.jsx'
 
 export default function DataExplorer() {
   const [datasets, setDatasets] = useState([])
@@ -15,7 +18,7 @@ export default function DataExplorer() {
   const [page, setPage] = useState(1)
   const [filters, setFilters] = useState({ station: '', start: '', end: '' })
   const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   const loadMeta = async () => {
     try {
@@ -61,20 +64,19 @@ export default function DataExplorer() {
 
   return (
     <div>
-      <header className="page-header">
-        <div>
-          <h2>Data Explorer</h2>
-          <p className="muted">Historical climate data stored in partitioned
-            HDFS-style storage.</p>
-        </div>
-      </header>
+      <PageHeader
+        title="Data Explorer"
+        subtitle="Browse the raw climate archive exactly as it sits in HDFS-style partitions — filter by station or date range and page through millions of rows."
+      />
 
       {error && <div className="alert alert-error">{error}</div>}
 
       <div className="stat-grid">
         {datasets.length === 0 && (
-          <div className="card"><p className="muted">No datasets yet — run the
-            ingestion pipeline from the Dashboard.</p></div>
+          <div className="card" style={{ gridColumn: '1 / -1' }}>
+            <p className="muted">No datasets yet — head to the{' '}
+              <Link to="/">Dashboard</Link> and press “Load climate data” to fill the warehouse.</p>
+          </div>
         )}
         {datasets.map((d) => (
           <div className="stat-card" key={d.name}>
@@ -108,40 +110,50 @@ export default function DataExplorer() {
 
       <div className="card">
         <div className="card-head">
-          <h3>Readings {loading && <span className="muted">loading…</span>}</h3>
+          <h3 style={{ margin: 0 }}>
+            Readings
+            {loading && <span className="muted"> · fetching…</span>}
+          </h3>
           <span className="muted">{total.toLocaleString()} matching rows</span>
         </div>
-        <div className="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Date</th><th>Station</th><th>City</th><th>Region</th>
-                <th>Temp °C</th><th>Humidity %</th><th>Rain mm</th>
-                <th>CO₂</th><th>PM2.5</th><th>Wind</th><th>Sea mm</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((r, i) => (
-                <tr key={i}>
-                  <td>{r.date}</td>
-                  <td>{r.station_id}</td>
-                  <td>{r.city}</td>
-                  <td><span className="tag">{r.region}</span></td>
-                  <td>{r.temperature_c ?? '—'}</td>
-                  <td>{r.humidity_pct ?? '—'}</td>
-                  <td>{r.rainfall_mm ?? '—'}</td>
-                  <td>{r.co2_ppm ?? '—'}</td>
-                  <td className={r.pm25 > 150 ? 'danger-text' : ''}>{r.pm25 ?? '—'}</td>
-                  <td>{r.wind_speed_kph ?? '—'}</td>
-                  <td>{r.sea_level_mm ?? '—'}</td>
+        {loading ? (
+          <Spinner label="Paging through the warehouse…" />
+        ) : (
+          <div className="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th><th>Station</th><th>City</th><th>Region</th>
+                  <th>Temp °C</th><th>Humidity %</th><th>Rain mm</th>
+                  <th>CO₂</th><th>PM2.5</th><th>Wind</th><th>Sea mm</th>
                 </tr>
-              ))}
-              {rows.length === 0 && (
-                <tr><td colSpan={11} className="muted">No rows to display.</td></tr>
-              )}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {rows.map((r, i) => (
+                  <tr key={i}>
+                    <td>{r.date}</td>
+                    <td>{r.station_id}</td>
+                    <td>{r.city}</td>
+                    <td><span className="tag">{r.region}</span></td>
+                    <td>{r.temperature_c ?? '—'}</td>
+                    <td>{r.humidity_pct ?? '—'}</td>
+                    <td>{r.rainfall_mm ?? '—'}</td>
+                    <td>{r.co2_ppm ?? '—'}</td>
+                    <td className={r.pm25 > 150 ? 'danger-text' : ''}>{r.pm25 ?? '—'}</td>
+                    <td>{r.wind_speed_kph ?? '—'}</td>
+                    <td>{r.sea_level_mm ?? '—'}</td>
+                  </tr>
+                ))}
+                {rows.length === 0 && (
+                  <tr><td colSpan={11} className="muted">
+                    No rows match these filters — try widening the dates or picking
+                    “All stations”.
+                  </td></tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        )}
         <div className="pager">
           <button className="btn btn-outline btn-sm" disabled={page <= 1}
             onClick={() => goto(page - 1)}>‹ Prev</button>

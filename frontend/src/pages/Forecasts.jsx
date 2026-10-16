@@ -3,13 +3,22 @@
  * trained linear+seasonal model projects future values.
  */
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import {
   LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer,
 } from 'recharts'
 import api, { errorMessage } from '../api/client.js'
+import { PageHeader } from '../components/Layout.jsx'
+import { Spinner, EmptyState } from '../components/ui.jsx'
 
 const METRICS = ['temperature_c', 'co2_ppm', 'rainfall_mm']
 const HORIZONS = [30, 90, 180, 365]
+
+const FRIENDLY = {
+  temperature_c: 'Temperature',
+  co2_ppm: 'CO₂',
+  rainfall_mm: 'Rainfall',
+}
 
 export default function Forecasts() {
   const [metric, setMetric] = useState('temperature_c')
@@ -32,29 +41,36 @@ export default function Forecasts() {
     }
   }
 
-  useEffect(() => { load() }, [metric, days])
+  useEffect(() => { load() }, [metric, days]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const s = data?.summary
 
   return (
     <div>
-      <header className="page-header">
-        <div>
-          <h2>Trend Forecasts</h2>
-          <p className="muted">ML trend models project climate metrics into the
-            future (linear trend + annual seasonality).</p>
-        </div>
-        <div className="header-actions">
-          <select value={metric} onChange={(e) => setMetric(e.target.value)}>
-            {METRICS.map((m) => <option key={m} value={m}>{m}</option>)}
-          </select>
-          <select value={days} onChange={(e) => setDays(Number(e.target.value))}>
-            {HORIZONS.map((d) => <option key={d} value={d}>{d} days</option>)}
-          </select>
-        </div>
-      </header>
+      <PageHeader
+        title="Trend Forecasts"
+        subtitle="The trained models stretch history into the future — linear trend plus annual seasonality, for any horizon up to two years."
+        actions={(
+          <>
+            <select value={metric} onChange={(e) => setMetric(e.target.value)}
+              aria-label="Forecast metric">
+              {METRICS.map((m) => (
+                <option key={m} value={m}>{FRIENDLY[m] || m}</option>
+              ))}
+            </select>
+            <select value={days} onChange={(e) => setDays(Number(e.target.value))}
+              aria-label="Forecast horizon">
+              {HORIZONS.map((d) => <option key={d} value={d}>{d} days</option>)}
+            </select>
+          </>
+        )}
+      />
 
-      {error && <div className="alert alert-error">{error}</div>}
+      {error && (
+        <div className="alert alert-info">
+          {error} — train the models on the <Link to="/analytics">Analytics page</Link> first.
+        </div>
+      )}
 
       {s && (
         <div className="stat-grid">
@@ -90,20 +106,30 @@ export default function Forecasts() {
       )}
 
       <div className="card">
-        <h3>{metric} — next {days} days {busy && <span className="muted">loading…</span>}</h3>
+        <div className="card-head">
+          <h3 style={{ margin: 0 }}>
+            {FRIENDLY[metric] || metric} — next {days} days
+          </h3>
+          {busy && <span className="time-chip">🔮 projecting…</span>}
+        </div>
         {data?.forecast?.length > 0 ? (
           <ResponsiveContainer width="100%" height={320}>
             <LineChart data={data.forecast}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#243044" />
-              <XAxis dataKey="date" stroke="#8aa0b8" fontSize={11} />
-              <YAxis stroke="#8aa0b8" fontSize={12} domain={['auto', 'auto']} />
-              <Tooltip contentStyle={{ background: '#16213a', border: '1px solid #2c3e57' }} />
-              <Line type="monotone" dataKey={metric} stroke="#ff9f43"
-                strokeWidth={2} dot={false} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#2b3850" />
+              <XAxis dataKey="date" stroke="#93a5bf" fontSize={11} />
+              <YAxis stroke="#93a5bf" fontSize={12} domain={['auto', 'auto']} />
+              <Tooltip contentStyle={{ background: '#1c2434', border: '1px solid #2b3850', borderRadius: 10 }} />
+              <Line type="monotone" dataKey={metric} stroke="#ffb45c"
+                strokeWidth={2.4} dot={false} />
             </LineChart>
           </ResponsiveContainer>
+        ) : busy ? (
+          <Spinner label="Projecting the future…" />
         ) : (
-          <p className="muted">Train the ML models on the Analytics page first.</p>
+          <EmptyState emoji="🔮" title="No forecast yet">
+            <p>Train the trend models on the <Link to="/analytics">Analytics page</Link> —
+              once they are fresh, every metric here can look months ahead.</p>
+          </EmptyState>
         )}
       </div>
     </div>

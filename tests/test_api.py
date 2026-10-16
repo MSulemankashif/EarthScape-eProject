@@ -1,31 +1,11 @@
-"""Integration tests for the Flask REST API (in-process test client)."""
+"""Integration tests for the Flask REST API (in-process test client).
+
+The `client` fixture lives in conftest.py so every test module shares it.
+"""
 
 import pytest
 
 from src import auth, db
-from src.db import JsonBackend
-
-
-@pytest.fixture()
-def client(tmp_path, monkeypatch):
-    """Flask test client with an isolated JSON backend and temp HDFS."""
-    from src.hadoop.storage import LocalHDFS
-    from src.ml.models import ClimateModelRegistry
-
-    monkeypatch.setattr(db, "_backend", JsonBackend(tmp_path / "db"))
-    monkeypatch.setattr("src.api.app.get_storage",
-                        lambda: LocalHDFS(tmp_path / "hdfs"))
-    monkeypatch.setattr("src.api.app._weather_df",
-                        lambda limit=None: empty_df())
-    monkeypatch.setattr("src.api.app.list_datasets", lambda: {})
-    monkeypatch.setattr("src.api.app.registry",
-                        ClimateModelRegistry(model_dir=tmp_path / "models"))
-
-    from src.api.app import app
-    app.config["TESTING"] = True
-    with app.test_client() as c:
-        auth.seed_default_users()
-        yield c
 
 
 def empty_df():
