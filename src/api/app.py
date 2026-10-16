@@ -37,11 +37,19 @@ from src.auth import (
     role_required,
     seed_default_users,
 )
-from src.config import APP_HOST, APP_PORT, DEBUG, MODE
+from src.config import (
+    APP_HOST,
+    APP_PORT,
+    DEBUG,
+    MODE,
+    OPENWEATHER_API_KEY,
+    OW_SYNC_INTERVAL_MIN,
+)
 from src.db import get_db
 from src.hadoop.storage import get_storage
 from src.hadoop.mapreduce.job_runner import list_jobs, run_job
 from src.ingestion.pipeline import list_datasets, run_full_ingestion
+from src.live import openweather as ow
 from src.ml.models import METRICS, ClimateModelRegistry
 from src.streaming import (
     get_latest_readings,
@@ -100,9 +108,16 @@ _start_time = time.time()
 
 
 def _weather_df(limit: int | None = None) -> pd.DataFrame:
-    """Load the weather dataset from HDFS-partitioned storage."""
+    """
+    Load LIVE OpenWeather observations from HDFS-partitioned storage.
+
+    This is the project's primary dataset: every sync appends one real
+    reading per city under /climate/openweather_current. The synthetic test
+    archives (weather_stations.csv & friends) are intentionally NOT served
+    to the UI — they exist only for offline tests and the MapReduce CLI.
+    """
     storage = get_storage()
-    df = storage.read_dataset("/climate/weather/**/*.csv")
+    df = storage.read_dataset("/climate/openweather_current/**/*.csv")
     if df.empty:
         return df
     if "date" not in df.columns:
