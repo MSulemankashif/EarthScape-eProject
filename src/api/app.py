@@ -4,10 +4,11 @@ EarthScape Climate Agency - Flask REST API
 Backend for the React dashboard. Blueprints:
 
   /api/auth      login / register / me / users        (roles: admin, analyst)
+  /api/live      LIVE OpenWeather sync/status/forecast (primary data source)
   /api/data      datasets, readings, ingestion control
   /api/analytics MapReduce jobs, ML models, correlations
   /api/alerts    rules CRUD + alert history
-  /api/stream    live readings + simulator control
+  /api/stream    offline simulator (test fixture only)
   /api/feedback  support tickets & feedback
   /api/system    health / performance monitoring stats
 
@@ -44,6 +45,7 @@ from src.config import (
     MODE,
     OPENWEATHER_API_KEY,
     OW_SYNC_INTERVAL_MIN,
+    PROCESSED_DATA_DIR,
 )
 from src.db import get_db
 from src.hadoop.storage import get_storage
@@ -121,9 +123,8 @@ def _weather_df(limit: int | None = None) -> pd.DataFrame:
     if df.empty:
         return df
     if "date" not in df.columns:
-        # Older part-files stored without the date column: rebuild it from
-        # the year=/month= partition folders.
-        parts = storage.glob("/climate/weather/**/*.csv")
+        # Defensive: rebuild the date column from the year=/month= folders.
+        parts = storage.glob("/climate/openweather_current/**/*.csv")
         frames = []
         for part in parts:
             chunk = pd.read_csv(storage.root / part)
@@ -133,7 +134,7 @@ def _weather_df(limit: int | None = None) -> pd.DataFrame:
             frames.append(chunk)
         df = pd.concat(frames, ignore_index=True)
     df["date"] = pd.to_datetime(df["date"], errors="coerce")
-    df = df.sort_values("date")
+    df = df.dropna(subset=["date"]).sort_values("date")
     return df.tail(limit) if limit else df
 
 
@@ -308,8 +309,10 @@ def api_change_role(username: str):
 @app.get("/api/data/datasets")
 @login_required
 def api_datasets():
+    """Live OpenWeather datasets only — synthetic test archives stay hidden."""
     storage = get_storage()
-    catalog = list_datasets()
+    catalog = {name: meta for name, meta in list_datasets().items()
+               if str(meta.get("source", "")).startswith("openweather")}
     summary = []
     for name, meta in catalog.items():
         size = storage.du(f"/climate/{name}") if storage.exists(f"/climate/{name}") else 0
@@ -333,20 +336,30 @@ def api_ingest():
 @app.get("/api/data/readings")
 @login_required
 def api_readings():
-    """Paginated weather readings with optional station/date filters."""
+    """Paginated readings (live observations, or the stored real forecast)."""
     station = request.args.get("station")
     start = request.args.get("start")
     end = request.args.get("end")
     page = max(1, int(request.args.get("page", 1)))
     size = min(500, int(request.args.get("size", 100)))
+    dataset = request.args.get("dataset", "openweather_current")
+    if dataset not in (ow.CURRENT_DATASET, ow.FORECAST_DATASET):
+        dataset = ow.CURRENT_DATASET
 
     try:
-        df = _weather_df()
+        if dataset == ow.CURRENT_DATASET:
+            df = _weather_df()          # tests mock this seam
+        else:
+            df = get_storage().read_dataset(f"/climate/{dataset}/**/*.csv")
+            if "date" in df.columns:
+                df["date"] = pd.to_datetime(df["date"], errors="coerce")
+                df = df.dropna(subset=["date"]).sort_values("date")
     except Exception as exc:
         return jsonify({"error": f"Storage unavailable: {exc}"}), 500
     if df.empty:
         return jsonify({"readings": [], "total": 0, "page": page,
-                        "hint": "No data ingested yet. POST /api/data/ingest"})
+                        "hint": "No live data yet — click “Sync live weather” "
+                                "on the dashboard to pull OpenWeather data."})
 
     if station:
         df = df[df["station_id"] == station]
@@ -407,7 +420,13 @@ def api_jobs():
 def api_run_job():
     body = request.get_json(silent=True) or {}
     job_name = body.get("job")
-    input_csv = body.get("input") or "data/raw/weather_stations.csv"
+    # Default input: the LIVE OpenWeather export when it exists, otherwise
+    # the bundled test archive so offline jobs still work.
+    default_input = "data/raw/weather_stations.csv"
+    live_csv = PROCESSED_DATA_DIR / f"{ow.CURRENT_DATASET}.csv"
+    if live_csv.exists():
+        default_input = f"data/processed/{ow.CURRENT_DATASET}.csv"
+    input_csv = body.get("input") or default_input
     zscore = float(body.get("zscore", 3.0))
 
     started = time.perf_counter()
@@ -440,19 +459,30 @@ def api_run_job():
 @app.post("/api/analytics/ml/train")
 @role_required("admin", "analyst")
 def api_train_models():
-    """Train anomaly + trend models on the full weather history."""
+    """Train anomaly + trend models on the LIVE OpenWeather history."""
     started = time.perf_counter()
     try:
         df = _weather_df()
         if df.empty:
-            return jsonify({"error": "No weather data ingested yet."}), 400
+            return jsonify({"error": "No live data yet — sync OpenWeather "
+                                     "readings first."}), 400
+        if len(df) < 10:
+            return jsonify({"error": (
+                f"Only {len(df)} live readings collected so far — at least 10 "
+                "are needed. Auto-sync gathers 12 fresh readings every "
+                "10 minutes; run “Sync now” to build history faster.")}), 400
 
         anomaly = registry.train_anomaly(df, contamination=0.02)
         trained = ["anomaly"]
+        skipped = []
         for metric in ("temperature_c", "co2_ppm", "rainfall_mm"):
-            if metric in df.columns:
+            # Train only on metrics that actually carry live values
+            # (OpenWeather has no outdoor CO2 sensor — handled as missing).
+            if metric in df.columns and df[metric].notna().sum() >= 10:
                 registry.train_trend(df, metric)
                 trained.append(f"trend_{metric}")
+            else:
+                skipped.append(metric)
 
         anomalies = anomaly.predict(df)
         flagged = anomalies[anomalies["is_anomaly"]]
@@ -478,6 +508,7 @@ def api_train_models():
 
         return jsonify({
             "message": f"Trained: {', '.join(trained)}",
+            "metrics_without_enough_data": skipped,
             "anomalies_detected": int(len(flagged)),
             "anomaly_rate": round(len(flagged) / max(1, len(df)), 4),
             "recent_anomalies": sample,
@@ -516,8 +547,15 @@ def api_correlation():
     try:
         df = _weather_df()
         if df.empty:
-            return jsonify({"error": "No data."}), 400
-        result = ClimateModelRegistry.correlate(df[METRICS])
+            return jsonify({"error": "No live data yet — sync first."}), 400
+        # Live data has no outdoor CO2 / sea-level sensor: only correlate
+        # metrics that actually carry values (graceful missing-data handling).
+        cols = [m for m in METRICS
+                if m in df.columns and df[m].notna().sum() >= 3]
+        if len(cols) < 2:
+            return jsonify({"error": "Need at least two live metrics — more "
+                                     "readings arrive with every sync."}), 400
+        result = ClimateModelRegistry.correlate(df[cols])
         return jsonify(result)
     except Exception as exc:
         return jsonify({"error": str(exc)}), 500
@@ -531,11 +569,21 @@ def api_analytics_summary():
     if df.empty:
         return jsonify({"available": False})
 
-    numeric = df[METRICS].apply(pd.to_numeric, errors="coerce")
+    present = [m for m in METRICS if m in df.columns]
+    numeric = df[present].apply(pd.to_numeric, errors="coerce")
     latest = df.sort_values("date").groupby("station_id").tail(1)
+
+    # Include live-view extras when the columns exist.
+    latest_cols = ["station_id", "city", "temperature_c", "co2_ppm",
+                   "pm25", "date"]
+    for extra in ("region", "humidity_pct", "wind_speed_kph", "aqi",
+                  "weather_main"):
+        if extra in latest.columns:
+            latest_cols.append(extra)
 
     return jsonify({
         "available": True,
+        "source": "openweather",
         "total_readings": int(len(df)),
         "stations": int(df["station_id"].nunique()),
         "date_range": {
@@ -544,11 +592,10 @@ def api_analytics_summary():
         },
         "averages": json_safe([{
             m: round(float(numeric[m].mean()), 2)
-            for m in METRICS if m in numeric.columns
+            for m in numeric.columns
         }])[0],
         "latest_by_station": json_safe(
-            latest[["station_id", "city", "temperature_c", "co2_ppm",
-                    "pm25", "date"]].to_dict(orient="records")),
+            latest[latest_cols].to_dict(orient="records")),
         "missing_values": int(numeric.isna().sum().sum()),
     })
 
@@ -556,10 +603,15 @@ def api_analytics_summary():
 @app.get("/api/analytics/timeseries")
 @login_required
 def api_timeseries():
-    """Monthly-averaged trend of one metric, optionally per station."""
+    """
+    Resampled trend of one metric, optionally per station.
+
+    Frequency adapts to the data span so live data (hours old) still renders
+    a useful chart: hourly <=2 days, daily <=120 days, monthly beyond that.
+    """
     metric = request.args.get("metric", "temperature_c")
     station = request.args.get("station")
-    limit = min(120, int(request.args.get("months", 60)))
+    limit = min(400, int(request.args.get("months", 60)))
 
     df = _weather_df()
     if df.empty or metric not in df.columns:
@@ -568,12 +620,24 @@ def api_timeseries():
         df = df[df["station_id"] == station]
     df = df.copy()
     df[metric] = pd.to_numeric(df[metric], errors="coerce")
-    monthly = (df.set_index("date")[metric]
-                  .resample("ME").mean().dropna().tail(limit))
+    if df[metric].notna().sum() == 0:
+        return jsonify({"error": f"No values for '{metric}' yet."}), 400
+
+    span = df["date"].max() - df["date"].min()
+    if span <= pd.Timedelta(days=2):
+        freq, label = "h", lambda i: i.strftime("%Y-%m-%d %H:00")
+    elif span <= pd.Timedelta(days=120):
+        freq, label = "D", lambda i: str(i.date())
+    else:
+        freq, label = "ME", lambda i: str(i.date())
+
+    series = (df.set_index("date")[metric]
+                  .resample(freq).mean().dropna().tail(limit))
     return jsonify({
         "metric": metric, "station": station or "all",
-        "points": [{"date": str(i.date()), "value": round(float(v), 2)}
-                   for i, v in monthly.items()],
+        "frequency": freq,
+        "points": [{"date": label(i), "value": round(float(v), 2)}
+                   for i, v in series.items()],
     })
 
 
@@ -635,7 +699,75 @@ def api_toggle_rule(name: str, action: str):
 
 
 # ---------------------------------------------------------------------------
-# Live stream endpoints
+# LIVE OpenWeather endpoints (primary data source of the whole dashboard)
+# ---------------------------------------------------------------------------
+@app.get("/api/live/status")
+@login_required
+def api_live_status():
+    """Health of the OpenWeather integration (used by Admin + UI chips)."""
+    return jsonify(ow.status())
+
+
+@app.get("/api/live/cities")
+@login_required
+def api_live_cities():
+    return jsonify({"cities": ow.CITIES,
+                    "units": ow.OPENWEATHER_UNITS})
+
+
+@app.get("/api/live/latest")
+@login_required
+def api_live_latest():
+    """Latest live reading per city (cache-first, storage-backed fallback)."""
+    return jsonify(ow.latest())
+
+
+@app.post("/api/live/sync")
+@role_required("admin", "analyst")
+def api_live_sync():
+    """
+    Pull live conditions + air quality for all 12 cities (and optionally the
+    real 5-day forecast), store them, and evaluate alert rules per reading.
+    """
+    body = request.get_json(silent=True) or {}
+    include_fc = body.get("forecast")
+    try:
+        result = ow.sync(
+            include_forecast=None if include_fc is None else bool(include_fc),
+            on_reading=alert_engine.evaluate_reading,
+            force=bool(body.get("force")),
+        )
+    except ow.OpenWeatherError as exc:
+        return jsonify({"error": str(exc)}), 502
+    except Exception as exc:                    # pragma: no cover
+        log.error("Live sync failed: %s", exc)
+        return jsonify({"error": f"Live sync failed: {exc}"}), 500
+    return jsonify(result)
+
+
+@app.get("/api/live/forecast")
+@login_required
+def api_live_forecast():
+    """Real 5-day / 3-hour OpenWeather forecast for one city (5-min cache)."""
+    city_name = request.args.get("city") or ow.CITIES[0]["name"]
+    city = next((c for c in ow.CITIES if c["name"].lower()
+                 == city_name.lower()), None)
+    if city is None:
+        return jsonify({"error": f"Unknown city '{city_name}'.",
+                        "cities": [c["name"] for c in ow.CITIES]}), 404
+    try:
+        points = ow.fetch_forecast(city)
+    except ow.OpenWeatherError as exc:
+        return jsonify({"error": str(exc)}), 502
+    return jsonify({
+        "city": city, "count": len(points),
+        "points": json_safe(points),
+        "note": "Live 5-day / 3-hour forecast from OpenWeatherMap free tier.",
+    })
+
+
+# ---------------------------------------------------------------------------
+# Live stream endpoints (offline test simulator — superseded by /api/live)
 # ---------------------------------------------------------------------------
 _stream_state = {"active": False, "started_at": None}
 
@@ -730,6 +862,27 @@ def api_feedback_update(ticket_id: str):
 # ---------------------------------------------------------------------------
 # Bootstrap
 # ---------------------------------------------------------------------------
+def _initial_live_sync() -> None:
+    """First pull shortly after boot so the dashboard opens with live data."""
+    time.sleep(4)
+    try:
+        ow.sync(on_reading=alert_engine.evaluate_reading, force=True)
+    except Exception as exc:
+        log.warning("Initial OpenWeather sync failed: %s", exc)
+
+
+def _auto_sync_loop() -> None:
+    """Background thread: refresh live data every OW_SYNC_INTERVAL_MIN."""
+    interval = OW_SYNC_INTERVAL_MIN * 60
+    while True:
+        time.sleep(interval)
+        try:
+            result = ow.sync(on_reading=alert_engine.evaluate_reading)
+            log.info("Auto-sync: %s", result.get("message", result))
+        except Exception as exc:
+            log.warning("Auto-sync failed: %s", exc)
+
+
 def create_app() -> Flask:
     """App factory used by tests and the dev server."""
     seed_default_users()
@@ -741,4 +894,9 @@ create_app()
 
 if __name__ == "__main__":
     log.info("Starting EarthScape API on http://%s:%s", APP_HOST, APP_PORT)
+    if OPENWEATHER_API_KEY and OW_SYNC_INTERVAL_MIN > 0:
+        log.info("OpenWeather live sync: every %d min (+ immediate first sync)",
+                 OW_SYNC_INTERVAL_MIN)
+        threading.Thread(target=_auto_sync_loop, daemon=True).start()
+        threading.Thread(target=_initial_live_sync, daemon=True).start()
     app.run(host=APP_HOST, port=APP_PORT, debug=DEBUG, threaded=True)

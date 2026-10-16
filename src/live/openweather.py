@@ -140,8 +140,9 @@ def _http_get(url: str, tries: int = 2) -> dict:
 
 def _local_dt(unix: int | float, tz_offset: int) -> datetime:
     """Unix timestamp -> naive city-local datetime (what users expect)."""
-    return datetime.fromtimestamp(int(unix), tz=timezone.utc) + timedelta(
-        seconds=tz_offset)
+    utc_naive = datetime.fromtimestamp(int(unix),
+                                       tz=timezone.utc).replace(tzinfo=None)
+    return utc_naive + timedelta(seconds=tz_offset)
 
 
 # ---------------------------------------------------------------------------
