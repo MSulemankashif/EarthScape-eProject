@@ -122,8 +122,13 @@ def get_live_series(station_id: str | None = None,
 
 
 def _stream_loop(interval: float = STREAM_INTERVAL_SECONDS,
-                 batch: int = STREAM_BATCH_PER_TICK) -> None:
-    """Continuously generate + ingest readings until stopped."""
+                 batch: int = STREAM_BATCH_PER_TICK,
+                 on_reading=None) -> None:
+    """Continuously generate + ingest readings until stopped.
+
+    `on_reading` (if given) is invoked with every stored reading - the API
+    uses it to feed the alert engine so live anomalies raise notifications.
+    """
     rng = random.Random()
     log.info("Live stream started (interval=%ss, batch=%d)", interval, batch)
     while not _STOP.is_set():
@@ -136,22 +141,27 @@ def _stream_loop(interval: float = STREAM_INTERVAL_SECONDS,
                 stored = reading
             with _LOCK:
                 _LATEST.append(stored)
+            if on_reading is not None:
+                try:
+                    on_reading(stored)
+                except Exception as exc:  # pragma: no cover - defensive
+                    log.error("on_reading hook failed: %s", exc)
         _STOP.wait(interval)
     log.info("Live stream stopped.")
 
 
 def start_stream(interval: float = STREAM_INTERVAL_SECONDS,
                  batch: int = STREAM_BATCH_PER_TICK,
-                 persist: bool = True) -> threading.Thread:
+                 persist: bool = True,
+                 on_reading=None) -> threading.Thread:
     """Start the background stream thread (idempotent)."""
     global _THREAD
     if _THREAD and _THREAD.is_alive():
         return _THREAD
     _STOP.clear()
-    target = _stream_loop if persist else \
-        lambda: _stream_loop(interval, batch)
-    _THREAD = threading.Thread(target=target, args=(), daemon=True,
-                               name="earthscape-stream")
+    _THREAD = threading.Thread(target=_stream_loop,
+                               args=(interval, batch, on_reading),
+                               daemon=True, name="earthscape-stream")
     _THREAD.start()
     return _THREAD
 
@@ -163,11 +173,15 @@ def stop_stream(timeout: float = 5.0) -> None:
         _THREAD.join(timeout=timeout)
 
 
-def stream_once() -> list[dict]:
+def stream_once(on_reading=None) -> list[dict]:
     """Generate a single batch without starting a thread (used by tests)."""
     rng = random.Random()
-    batch = [ingest_reading(generate_reading(rng))
-             for _ in range(STREAM_BATCH_PER_TICK)]
+    batch = []
+    for _ in range(STREAM_BATCH_PER_TICK):
+        stored = ingest_reading(generate_reading(rng))
+        batch.append(stored)
+        if on_reading is not None:
+            on_reading(stored)
     with _LOCK:
         _LATEST.extend(batch)
     return batch

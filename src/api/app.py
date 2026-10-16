@@ -60,7 +60,18 @@ CORS(app, origins=["http://localhost:5173", "http://127.0.0.1:5173"],
 # Singletons shared across requests
 # ---------------------------------------------------------------------------
 registry = ClimateModelRegistry()
-alert_engine = AlertEngine.default()
+
+
+def _persist_alert(alert) -> None:
+    """Dispatcher: log every alert AND store it in the database."""
+    AlertEngine.log_dispatcher(alert)
+    try:
+        _db.insert("alerts", alert.to_dict())
+    except Exception as exc:  # pragma: no cover - never break alerting
+        log.error("Failed to persist alert %s: %s", alert.alert_id, exc)
+
+
+alert_engine = AlertEngine(dispatcher=_persist_alert)
 _db = get_db()
 _start_time = time.time()
 
@@ -519,7 +530,9 @@ def api_stream_series():
 @app.post("/api/stream/start")
 @admin_required
 def api_stream_start():
-    start_stream()
+    # Every live reading is evaluated against the alert rules before it
+    # reaches the dashboard (functional requirement: real-time alerting).
+    start_stream(on_reading=alert_engine.evaluate_reading)
     _stream_state.update(active=True,
                          started_at=datetime.now().isoformat(timespec="seconds"))
     return jsonify({"message": "Live stream started."})

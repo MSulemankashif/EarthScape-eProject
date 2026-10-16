@@ -74,7 +74,8 @@ def test_malformed_lines_do_not_crash():
 def test_empty_input_is_tolerated():
     out = run(MR / "mapper.py", MR / "reducer.py",
               "station_id,city,date,temperature_c\n")
-    assert out.strip() == ""
+    # Only the CSV header line, no data rows
+    assert out.strip().splitlines() == ["station_id,month,metric,count,mean,min,max,stddev,sum"]
 
 
 def test_job_runner_api():

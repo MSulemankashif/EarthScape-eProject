@@ -135,8 +135,9 @@ def test_role_required_allows_matching_role(monkeypatch):
         def view():
             return {"ok": True}
 
-        response, status = view()
-        assert status == 200 if isinstance(status, int) else response.status_code == 200
+        result = view()
+        # Allowed: the view's own return value comes back untouched
+        assert result == {"ok": True}
 
 
 def test_role_required_rejects_other_role(monkeypatch):

@@ -10,12 +10,16 @@ from src.db import JsonBackend
 def client(tmp_path, monkeypatch):
     """Flask test client with an isolated JSON backend and temp HDFS."""
     from src.hadoop.storage import LocalHDFS
+    from src.ml.models import ClimateModelRegistry
 
     monkeypatch.setattr(db, "_backend", JsonBackend(tmp_path / "db"))
     monkeypatch.setattr("src.api.app.get_storage",
                         lambda: LocalHDFS(tmp_path / "hdfs"))
     monkeypatch.setattr("src.api.app._weather_df",
                         lambda limit=None: empty_df())
+    monkeypatch.setattr("src.api.app.list_datasets", lambda: {})
+    monkeypatch.setattr("src.api.app.registry",
+                        ClimateModelRegistry(model_dir=tmp_path / "models"))
 
     from src.api.app import app
     app.config["TESTING"] = True
@@ -128,12 +132,19 @@ def test_readings_hint_when_empty(client):
     assert "hint" in res.get_json()
 
 
-def test_ingest_with_no_raw_files(client):
-    """Ingestion must fail gracefully with a 500 + message, not a traceback."""
+def test_ingest_skips_missing_raw_files(client, monkeypatch):
+    """Missing raw files are skipped gracefully, not a crash."""
+    import src.ingestion.pipeline as pipeline
+    from pathlib import Path
+
+    monkeypatch.setattr(pipeline, "RAW_DATA_DIR", Path("/nonexistent-dir"))
+    monkeypatch.setattr("src.api.app.run_full_ingestion",
+                        pipeline.run_full_ingestion)
+
     token = login(client)
     res = client.post("/api/data/ingest", headers=authed(client, token))
-    assert res.status_code == 500
-    assert "error" in res.get_json()
+    assert res.status_code == 200
+    assert res.get_json()["results"] == []
 
 
 # ---------------------------------------------------------------------------

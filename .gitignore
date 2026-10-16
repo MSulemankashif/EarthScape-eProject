@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+
+# Generated data & logs (rebuild with the pipeline)
+data/hdfs_sim/
+data/db/
+data/models/
+data/processed/
+logs/
+
+# Scratch
+doc_content.txt
+*.log
+.DS_Store
+Thumbs.db
