@@ -272,6 +272,20 @@ class ClimateModelRegistry:
                     self.model_dir / f"trend_{metric}.joblib")
         return model
 
+    def drop_trend(self, metric: str) -> bool:
+        """
+        Remove a stale trend model (file + memory).
+
+        Used when retraining on live data: a trend model fitted on older or
+        test-only data must never keep serving "live" projections.
+        """
+        self.trends.pop(metric, None)
+        path = self.model_dir / f"trend_{metric}.joblib"
+        existed = path.exists()
+        if existed:
+            path.unlink()
+        return existed
+
     def load_trend(self, metric: str) -> TrendPredictionModel | None:
         if metric in self.trends:
             return self.trends[metric]

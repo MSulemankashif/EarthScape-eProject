@@ -44,3 +44,37 @@ export function ConfirmModal({ open, title, message, confirmLabel = 'Yes, do it'
     </div>
   )
 }
+
+/* -------------------------------------------------------------------------
+ * Live-weather presentation helpers (OpenWeather `weather_main` / AQI scale)
+ * ---------------------------------------------------------------------- */
+const WEATHER_EMOJI = {
+  Clear: '☀️', Clouds: '⛅', Rain: '🌧️', Drizzle: '🌦️',
+  Thunderstorm: '⛈️', Snow: '❄️', Mist: '🌫️', Smoke: '🌫️',
+  Haze: '🌫️', Dust: '🌫️', Fog: '🌫️', Sand: '🌫️', Ash: '🌋',
+  Squall: '💨', Tornado: '🌪️',
+}
+
+export function weatherEmoji(main) {
+  return WEATHER_EMOJI[main] || '🌤️'
+}
+
+export function aqiInfo(aqi) {
+  switch (aqi) {
+    case 1: return { label: 'Good', cls: 'tag-ok' }
+    case 2: return { label: 'Fair', cls: 'tag-ok' }
+    case 3: return { label: 'Moderate', cls: 'tag-warn' }
+    case 4: return { label: 'Poor', cls: 'tag-warning' }
+    case 5: return { label: 'Very poor', cls: 'tag-critical' }
+    default: return { label: '—', cls: 'tag' }
+  }
+}
+
+export function timeAgo(iso) {
+  if (!iso) return 'never'
+  const secs = Math.max(0, (Date.now() - new Date(iso).getTime()) / 1000)
+  if (secs < 60) return `${Math.round(secs)}s ago`
+  if (secs < 3600) return `${Math.round(secs / 60)}m ago`
+  if (secs < 86400) return `${Math.round(secs / 3600)}h ago`
+  return new Date(iso).toLocaleString()
+}

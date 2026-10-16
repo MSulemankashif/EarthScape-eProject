@@ -26,17 +26,21 @@ export default function Admin() {
   const [users, setUsers] = useState(null)
   const [system, setSystem] = useState(null)
   const [backups, setBackups] = useState(null)
+  const [live, setLive] = useState(null)
   const [busyBackup, setBusyBackup] = useState(false)
+  const [busySync, setBusySync] = useState(false)
   const [confirmBackup, setConfirmBackup] = useState(false)
 
   const load = async () => {
     try {
-      const [u, s] = await Promise.all([
+      const [u, s, l] = await Promise.all([
         api.get('/auth/users'),
         api.get('/system/stats'),
+        api.get('/live/status').catch(() => ({ data: null })),
       ])
       setUsers(u.data.users)
       setSystem(s.data)
+      setLive(l.data)
       const b = await api.get('/system/backups')
       setBackups(b.data.backups)
     } catch (err) {
@@ -84,6 +88,27 @@ export default function Admin() {
     }
   }
 
+  const syncNow = async () => {
+    setBusySync(true)
+    try {
+      const { data } = await api.post('/live/sync', {})
+      if (data.skipped) {
+        toast.info(data.message, { title: 'Already fresh ☁' })
+      } else {
+        toast.success(
+          `${data.readings} cities in ${data.duration_seconds}s · `
+          + `${data.forecast_rows} forecast rows`,
+          { title: 'Live sync complete 🌍' },
+        )
+      }
+      load()
+    } catch (err) {
+      toast.error(errorMessage(err), { title: 'Live sync failed' })
+    } finally {
+      setBusySync(false)
+    }
+  }
+
   return (
     <div>
       <PageHeader
@@ -128,6 +153,53 @@ export default function Admin() {
             <p className="muted" style={{ marginTop: 10 }}>
               Analysts can read and analyse; admins can additionally manage users,
               rules and backups.
+            </p>
+          </div>
+
+          <div className="card">
+            <div className="card-head">
+              <h3 style={{ margin: 0 }}>🌍 OpenWeather live source</h3>
+              <button className="btn btn-warm btn-sm" onClick={syncNow}
+                disabled={busySync}>
+                {busySync
+                  ? <><span className="spinner spinner-sm" aria-hidden="true" /> Syncing…</>
+                  : '☁ Sync now'}
+              </button>
+            </div>
+            {live ? (
+              <div className="model-status">
+                <span className={live.configured ? 'tag tag-ok' : 'tag tag-critical'}>
+                  key {live.configured ? live.key_masked : 'missing'}
+                </span>
+                <span className="tag">
+                  {live.cities} cities · {live.calls_per_sync} calls/sync
+                </span>
+                <span className={live.auto_sync ? 'tag tag-ok' : 'tag tag-warn'}>
+                  auto-sync {live.auto_sync ? `every ${live.interval_minutes} min` : 'off'}
+                </span>
+                <span className="tag tag-info">
+                  last sync {ago(live.last_sync_at)} · {live.last_sync_rows} rows
+                  {live.last_duration_seconds != null ? ` · ${live.last_duration_seconds}s` : ''}
+                </span>
+                {live.sync_count > 0 && (
+                  <span className="tag">{live.sync_count} syncs this session</span>
+                )}
+                {live.next_auto_sync_in_min != null && (
+                  <span className="tag">next auto in {live.next_auto_sync_in_min} min</span>
+                )}
+                {live.forecast_enabled && <span className="tag tag-ok">5-day forecast on</span>}
+                {live.last_error && (
+                  <span className="tag tag-critical">⚠ {live.last_error}</span>
+                )}
+              </div>
+            ) : (
+              <p className="muted">Loading status…</p>
+            )}
+            <p className="muted" style={{ marginTop: 8 }}>
+              Free tier (<code>/weather</code>, <code>/forecast</code>,{' '}
+              <code>/air_pollution</code> — 60 calls/min). A {live?.cooldown_seconds ?? 30}s
+              cooldown protects the quota; set <code>OPENWEATHER_API_KEY</code> to swap
+              keys in production.
             </p>
           </div>
 

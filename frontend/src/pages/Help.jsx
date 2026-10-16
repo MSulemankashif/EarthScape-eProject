@@ -9,24 +9,42 @@ import { PageHeader } from '../components/Layout.jsx'
 const FAQ = [
   {
     q: 'I just logged in and the dashboard looks empty. What do I do?',
-    a: <>Nothing is broken — the warehouse simply has no data yet. Click
-      <strong> “Load climate data”</strong> on the Dashboard. It runs the ingestion
-      pipeline, which reads the raw CSVs, cleans them, and stores them in
-      HDFS-partitioned folders. Refresh afterwards and every chart fills in.</>,
+    a: <>Nothing is broken — the warehouse is waiting for its first pull of live
+      weather. Click <strong>“☁ Sync live weather”</strong> on the Dashboard (a first
+      sync also starts automatically). Real conditions for 12 Pakistani cities are
+      fetched from OpenWeatherMap, cleaned, and stored in HDFS-partitioned folders —
+      refresh afterwards and every chart fills in.</>,
+  },
+  {
+    q: 'Where does the live data come from? Is it real?',
+    a: <>It is real. The backend calls the <strong>OpenWeatherMap</strong> API
+      (<code>/weather</code>, <code>/air_pollution</code>, <code>/forecast</code>) for
+      12 cities, so temperatures, humidity, wind and PM2.5 are actual observations.
+      Syncs run every 10 minutes automatically (plus on-demand), with a short cooldown
+      protecting the free-tier quota of 60 calls/minute. Swap keys via the
+      <code> OPENWEATHER_API_KEY</code> environment variable.</>,
+  },
+  {
+    q: 'Why are CO₂ and sea level always “—”?',
+    a: <>OpenWeatherMap has no outdoor CO₂ or sea-level sensor, so those columns are
+      honestly stored as missing instead of being faked. The platform treats them the
+      way it treats any missing reading: charts skip them, averages ignore them, and
+      correlation analysis only uses metrics with real values.</>,
   },
   {
     q: 'How do I run the machine-learning models?',
     a: <>Open <strong>Analytics &amp; ML</strong> and press <strong>“Train ML models”</strong>.
       That fits the anomaly detector (Isolation Forest) plus linear trend models for
-      temperature, CO₂ and rainfall. Training takes a couple of seconds and the page
-      shows how long it took and how fresh the model is.</>,
+      metrics with enough live readings (temperature, rainfall…). Training takes a
+      couple of seconds and the page shows how long it took and how fresh the model is.</>,
   },
   {
-    q: 'What is the Live Stream page?',
-    a: <>It simulates real-time sensor readings arriving every few seconds — the
-      streaming side of the platform. Press <strong>Start simulator</strong> and watch
-      readings appear, get evaluated by your alert rules, and be appended to the same
-      HDFS storage used by batch ingestion.</>,
+    q: 'What is the Live Weather page?',
+    a: <>The real-time heart of the platform: current conditions for all 12 cities as
+      live cards, a by-city comparison chart, and a detailed readings table. It
+      refreshes every 30 seconds and the backend pulls fresh data every 10 minutes —
+      or press <strong>“☁ Sync now”</strong>. Every reading is checked against your
+      alert rules the moment it lands.</>,
   },
   {
     q: 'How do alerts work? Can I change the thresholds?',
@@ -38,7 +56,7 @@ const FAQ = [
   {
     q: 'Who can see what?',
     a: <>Two roles exist. <strong>Admins</strong> manage users, alert rules, backups and
-      the live-stream process. <strong>Analysts</strong> read data, run analytics,
+      the live data source. <strong>Analysts</strong> read data, run analytics,
       train models and file support tickets. Every API call checks your token’s role,
       so hiding buttons is not the only protection.</>,
   },
@@ -72,10 +90,10 @@ const FAQ = [
 ]
 
 const TUTORIALS = [
-  { icon: '①', title: 'Load your first data', body: 'Dashboard → “Load climate data”. Wait for the success toast, then explore the station table.' },
-  { icon: '②', title: 'See live readings', body: 'Live Stream → “Start simulator”. Readings appear every few seconds and may trigger alerts instantly.' },
-  { icon: '③', title: 'Train & forecast', body: 'Analytics & ML → train models → open Forecasts and project any metric up to 2 years ahead.' },
-  { icon: '④', title: 'Tune alert rules', body: 'Alerts → add a rule (metric, operator, threshold). The next matching reading fires a notification.' },
+  { icon: '①', title: 'Pull live weather', body: 'Dashboard → “☁ Sync live weather”. Real conditions for 12 cities land in seconds, then auto-refresh every 10 minutes.' },
+  { icon: '②', title: 'Watch it live', body: 'Live Weather → city cards, comparison chart and full readings table — every row is checked against your alert rules on arrival.' },
+  { icon: '③', title: 'Train & forecast', body: 'Analytics & ML → train models → open Forecasts for the real 5-day API forecast plus the model’s long-range projection.' },
+  { icon: '④', title: 'Tune alert rules', body: 'Alerts → add a rule (metric, operator, threshold). The next matching live reading fires a notification.' },
 ]
 
 export default function Help() {

@@ -116,8 +116,9 @@ export default function Alerts() {
             <Spinner label="Watching for events…" small={false} />
           ) : alerts.length === 0 ? (
             <EmptyState emoji="🌤️" title="All quiet — no alerts yet">
-              <p>Start the <strong>Live Stream</strong> simulator or ingest historical
-                data, and threshold breaches will appear here within seconds.</p>
+              <p>Sync live weather from the <strong>Live Weather</strong> page —
+                every reading is checked against your rules on arrival, and any
+                threshold breach appears here within seconds.</p>
             </EmptyState>
           ) : (
             <div className="table-wrap">

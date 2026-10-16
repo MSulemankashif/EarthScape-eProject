@@ -449,11 +449,17 @@ def api_run_job():
     del _job_history[:-50]          # keep the last 50 runs only
 
     preview = json_safe(result.head(50).to_dict(orient="records"))
-    return jsonify({"job": job_name, "rows": len(result),
+    message = (f"Job '{job_name}' completed on {len(result)} rows "
+               f"in {duration}s.")
+    if job_name == "anomaly_detection" and len(result) == 0:
+        message = (f"No reading crossed the {zscore}σ threshold — that's a "
+                   "healthy result. With young live history each station has "
+                   "few values, so z-scores stay small; try a lower threshold "
+                   "(e.g. zscore 1.5) or let auto-sync grow the history.")
+    return jsonify({"job": job_name, "rows": len(result), "zscore": zscore,
                     "duration_seconds": duration,
                     "preview": preview,
-                    "message": (f"Job '{job_name}' completed on {len(result)} "
-                                f"rows in {duration}s.")})
+                    "message": message})
 
 
 @app.post("/api/analytics/ml/train")
@@ -476,13 +482,24 @@ def api_train_models():
         trained = ["anomaly"]
         skipped = []
         for metric in ("temperature_c", "co2_ppm", "rainfall_mm"):
-            # Train only on metrics that actually carry live values
-            # (OpenWeather has no outdoor CO2 sensor — handled as missing).
-            if metric in df.columns and df[metric].notna().sum() >= 10:
-                registry.train_trend(df, metric)
-                trained.append(f"trend_{metric}")
+            # Train only on metrics that actually carry live values AND have
+            # enough daily history (OpenWeather has no outdoor CO2 sensor,
+            # and a trend needs >= 30 daily points to be meaningful).
+            reason = None
+            if metric not in df.columns or df[metric].notna().sum() < 10:
+                reason = "no live values yet"
             else:
-                skipped.append(metric)
+                try:
+                    registry.train_trend(df, metric)
+                    trained.append(f"trend_{metric}")
+                    continue
+                except Exception as exc:
+                    reason = str(exc)
+            skipped.append({"metric": metric, "reason": reason})
+            # Never let a model trained on older/test data keep serving
+            # "live" projections — drop the stale artifact instead.
+            if registry.drop_trend(metric):
+                log.info("Dropped stale trend model '%s' (%s)", metric, reason)
 
         anomalies = anomaly.predict(df)
         flagged = anomalies[anomalies["is_anomaly"]]
@@ -495,6 +512,7 @@ def api_train_models():
             "trained_at": datetime.now().isoformat(timespec="seconds"),
             "rows_used": int(len(df)),
             "duration_seconds": duration,
+            "metrics_without_enough_data": skipped,
         }
         registry.note_freshness(freshness)
 
@@ -506,8 +524,13 @@ def api_train_models():
         })
         del _job_history[:-50]
 
+        message = f"Trained: {', '.join(trained)}"
+        if skipped:
+            message += (f" · {len(skipped)} trend metric(s) skipped — they "
+                        "need >= 30 days of live history; the real 5-day "
+                        "OpenWeather forecast covers near-term needs meanwhile")
         return jsonify({
-            "message": f"Trained: {', '.join(trained)}",
+            "message": message,
             "metrics_without_enough_data": skipped,
             "anomalies_detected": int(len(flagged)),
             "anomaly_rate": round(len(flagged) / max(1, len(df)), 4),
@@ -606,8 +629,9 @@ def api_timeseries():
     """
     Resampled trend of one metric, optionally per station.
 
-    Frequency adapts to the data span so live data (hours old) still renders
-    a useful chart: hourly <=2 days, daily <=120 days, monthly beyond that.
+    Frequency adapts to the data span so live data (minutes old) still renders
+    a useful chart: 5-minute buckets <=6 hours, hourly <=2 days,
+    daily <=120 days, monthly beyond that.
     """
     metric = request.args.get("metric", "temperature_c")
     station = request.args.get("station")
@@ -624,7 +648,11 @@ def api_timeseries():
         return jsonify({"error": f"No values for '{metric}' yet."}), 400
 
     span = df["date"].max() - df["date"].min()
-    if span <= pd.Timedelta(days=2):
+    if span <= pd.Timedelta(hours=6):
+        # Brand-new live history: bucket per sync window so the chart has
+        # several points within the first minutes, not one lonely dot.
+        freq, label = ("5min", lambda i: i.strftime("%H:%M"))
+    elif span <= pd.Timedelta(days=2):
         freq, label = "h", lambda i: i.strftime("%Y-%m-%d %H:00")
     elif span <= pd.Timedelta(days=120):
         freq, label = "D", lambda i: str(i.date())

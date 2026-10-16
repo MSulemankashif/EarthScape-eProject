@@ -29,6 +29,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 
 import pandas as pd
@@ -345,28 +346,43 @@ def sync(include_forecast: bool | None = None,
         else include_forecast
     errors: list[str] = []
     rows: list[dict] = []
+    fc_rows: list[dict] = []
 
-    # 1) current conditions + air quality (2 calls per city)
-    for city in CITIES:
+    # 1) current conditions + air quality — fetched in parallel so a full
+    #    36-call cycle finishes in a few seconds (free tier allows 60/min).
+    def _city_current(city: dict) -> dict | str:
         try:
-            rows.append(fetch_current(city))
+            return fetch_current(city)
         except OpenWeatherError as exc:
-            errors.append(f"{city['name']}: {exc}")
             log.warning("Live fetch failed for %s: %s", city["name"], exc)
+            return f"{city['name']}: {exc}"
+
+    def _city_forecast(city: dict) -> list[dict] | str:
+        try:
+            return fetch_forecast(city)
+        except OpenWeatherError as exc:
+            return f"{city['name']} forecast: {exc}"
+
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        for outcome in pool.map(_city_current, CITIES):
+            if isinstance(outcome, str):
+                errors.append(outcome)
+            else:
+                rows.append(outcome)
 
     if not rows:
         _state["last_error"] = errors[0] if errors else "no data"
         raise OpenWeatherError(
             "Every city failed: " + (errors[0] if errors else "unknown error"))
 
-    # 2) optional real 5-day forecast (1 call per city)
-    fc_rows: list[dict] = []
+    # 2) optional real 5-day forecast (parallel as well)
     if include_forecast:
-        for city in CITIES:
-            try:
-                fc_rows.extend(fetch_forecast(city))
-            except OpenWeatherError as exc:
-                errors.append(f"{city['name']} forecast: {exc}")
+        with ThreadPoolExecutor(max_workers=6) as pool:
+            for outcome in pool.map(_city_forecast, CITIES):
+                if isinstance(outcome, str):
+                    errors.append(outcome)
+                else:
+                    fc_rows.extend(outcome)
 
     # 3) clean + store (append so repeated syncs build live history)
     current_df = _clean(rows)

@@ -239,6 +239,32 @@ body {
 .stat-label { margin: 0; font-size: 12px; color: var(--muted); }
 .stat-value { margin: 2px 0 0; font-size: 19px; font-weight: 600; }
 
+/* ---------- Live weather city cards ---------- */
+.city-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(168px, 1fr));
+  gap: 12px; margin-bottom: 18px;
+}
+.city-card {
+  background: linear-gradient(180deg, var(--bg-card), #1a2231);
+  border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 13px 14px;
+  box-shadow: var(--shadow-soft);
+  transition: transform .15s, border-color .15s;
+}
+.city-card:hover { transform: translateY(-2px); border-color: #35476a; }
+.city-card-top { display: flex; align-items: center; justify-content: space-between; }
+.city-emoji { font-size: 27px; line-height: 1; }
+.city-name { margin: 7px 0 0; font-size: 14px; font-weight: 600; }
+.city-temp { margin: 2px 0 0; font-size: 25px; font-weight: 700; letter-spacing: -.5px; }
+.city-cond { margin: 1px 0 8px; font-size: 12px; color: var(--muted); }
+.city-metrics { display: flex; flex-direction: column; gap: 3px; font-size: 12px; color: var(--muted); }
+.city-metrics span { display: flex; justify-content: space-between; gap: 8px; }
+.city-metrics b { color: var(--text); font-weight: 600; }
+
+/* Small inline meta row used by live pages */
+.live-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
 /* ---------- Tables ---------- */
 .table-wrap { overflow-x: auto; }
 table { width: 100%; border-collapse: collapse; font-size: 13px; }

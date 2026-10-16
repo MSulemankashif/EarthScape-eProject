@@ -23,6 +23,7 @@ function freshnessLabel(fresh) {
 export default function Analytics() {
   const [jobs, setJobs] = useState(null)
   const [jobResult, setJobResult] = useState(null)
+  const [zscore, setZscore] = useState(2)       // anomaly sensitivity
   const [mlStatus, setMlStatus] = useState(null)
   const [mlResult, setMlResult] = useState(null)
   const [corr, setCorr] = useState(null)
@@ -37,8 +38,13 @@ export default function Analytics() {
       ])
       setJobs(j.data.jobs)
       setMlStatus(m.data)
-      const c = await api.get('/analytics/correlation')
-      setCorr(c.data)
+      // Correlation needs live data — a friendly 400 must not blank the page.
+      try {
+        const c = await api.get('/analytics/correlation')
+        setCorr(c.data)
+      } catch {
+        setCorr(null)
+      }
     } catch (err) {
       toast.error(errorMessage(err), { title: 'Could not load analytics' })
       setJobs([])
@@ -50,7 +56,8 @@ export default function Analytics() {
   const runJob = async (name) => {
     setBusy(name)
     try {
-      const { data } = await api.post('/analytics/jobs/run', { job: name })
+      const { data } = await api.post('/analytics/jobs/run',
+        { job: name, zscore: Number(zscore) })
       setJobResult(data)
       toast.success(
         `${data.rows.toLocaleString()} rows in ${data.duration_seconds}s`,
@@ -72,6 +79,14 @@ export default function Analytics() {
         `${data.anomalies_detected} anomalies found · trained in ${data.freshness.duration_seconds}s`,
         { title: 'Models are ready 🧠' },
       )
+      if (data.metrics_without_enough_data?.length) {
+        toast.info(
+          `${data.metrics_without_enough_data.map((m) => m.metric).join(', ')} `
+          + 'need ≥ 30 days of live history before a trend can be fitted — '
+          + 'the real 5-day OpenWeather forecast covers near-term needs.',
+          { title: 'Trend models: more history needed' },
+        )
+      }
       const m = await api.get('/analytics/ml/status')
       setMlStatus(m.data)
     } catch (err) {
@@ -92,7 +107,7 @@ export default function Analytics() {
     <div>
       <PageHeader
         title="Analytics & Machine Learning"
-        subtitle="Run Hadoop MapReduce jobs over the raw datasets, train the ML models, and discover how climate variables move together."
+        subtitle="Run Hadoop MapReduce jobs over your live OpenWeather export, train the ML models on real readings, and discover how climate variables move together."
         actions={(
           <button className="btn btn-primary" onClick={trainModels}
             disabled={busy === 'train'}>
@@ -109,9 +124,27 @@ export default function Analytics() {
         <div className="grid-2">
           <div className="card">
             <h3>MapReduce jobs</h3>
+            <p className="muted" style={{ marginTop: -4 }}>
+              Jobs read your live export <code>data/processed/openweather_current.csv</code>{' '}
+              automatically — or pass any CSV via the API.
+            </p>
             {jobs.length === 0 && (
-              <p className="muted">No jobs registered — run the ingestion pipeline first.</p>
+              <p className="muted">No jobs registered — they ship with the platform, try a refresh.</p>
             )}
+            <div className="live-meta" style={{ marginBottom: 8 }}>
+              <label className="muted" style={{ margin: 0 }}>
+                Anomaly sensitivity (z-score)
+                <select value={zscore} onChange={(e) => setZscore(e.target.value)}
+                  aria-label="Anomaly z-score threshold"
+                  style={{ width: 'auto', marginLeft: 8, marginTop: 0 }}>
+                  <option value={1.5}>1.5 · sensitive</option>
+                  <option value={2}>2.0 · balanced</option>
+                  <option value={2.5}>2.5 · strict</option>
+                  <option value={3}>3.0 · conservative</option>
+                </select>
+              </label>
+              <span className="muted">lower = more anomalies flagged</span>
+            </div>
             {jobs.map((job) => (
               <div className="job-row" key={job.name}>
                 <div>
@@ -191,7 +224,7 @@ export default function Analytics() {
                       <thead>
                         <tr>
                           <th>Station</th><th>Date</th><th>Temp</th><th>PM2.5</th>
-                          <th>CO₂</th><th>Score</th>
+                          <th>Wind</th><th>Score</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -201,7 +234,7 @@ export default function Analytics() {
                             <td>{a.date?.slice(0, 10)}</td>
                             <td>{a.temperature_c}</td>
                             <td>{a.pm25}</td>
-                            <td>{a.co2_ppm}</td>
+                            <td>{a.wind_speed_kph ?? '—'}</td>
                             <td><span className="tag tag-warn">{a.anomaly_score}</span></td>
                           </tr>
                         ))}
@@ -217,8 +250,9 @@ export default function Analytics() {
 
       {jobs !== null && relBars.length === 0 && (
         <EmptyState emoji="🔬" title="Correlations appear with data">
-          <p>Once weather data is ingested, this card ranks every variable pair by
-            Pearson correlation so you can spot relationships at a glance.</p>
+          <p>Once live weather syncs in, this card ranks every variable pair by
+            Pearson correlation so you can spot relationships at a glance —
+            metrics without live values (like outdoor CO₂) are skipped honestly.</p>
         </EmptyState>
       )}
 

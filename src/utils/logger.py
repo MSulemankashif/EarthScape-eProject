@@ -9,6 +9,27 @@ from src.config import LOGS_DIR
 _configured = set()
 
 
+class SafeRotatingFileHandler(RotatingFileHandler):
+    """
+    Windows-friendly rotation.
+
+    Renaming an open log file fails on Windows (WinError 32) — both for this
+    process and for any second process writing to the same log. Instead of
+    spamming "Logging error" tracebacks, fall back to truncating the stream
+    in place, which always works.
+    """
+
+    def doRollover(self) -> None:                    # pragma: no cover
+        try:
+            super().doRollover()
+        except OSError:
+            try:
+                self.stream.seek(0)
+                self.stream.truncate()
+            except OSError:
+                pass
+
+
 def get_logger(name: str, filename: str = "earthscape.log") -> logging.Logger:
     """Return a configured logger. Safe to call repeatedly for the same name."""
     if name in _configured:
@@ -25,7 +46,7 @@ def get_logger(name: str, filename: str = "earthscape.log") -> logging.Logger:
     stream.setFormatter(fmt)
     logger.addHandler(stream)
 
-    fh = RotatingFileHandler(
+    fh = SafeRotatingFileHandler(
         LOGS_DIR / filename, maxBytes=1_000_000, backupCount=3, encoding="utf-8"
     )
     fh.setFormatter(fmt)

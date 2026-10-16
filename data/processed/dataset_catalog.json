@@ -135,6 +135,77 @@
       ],
       "partition_count": 37,
       "ingested_at": "2026-10-16T18:01:42"
+    },
+    "openweather_current": {
+      "rows": 132,
+      "columns": [
+        "station_id",
+        "city",
+        "country",
+        "region",
+        "latitude",
+        "longitude",
+        "date",
+        "temperature_c",
+        "feels_like_c",
+        "humidity_pct",
+        "rainfall_mm",
+        "co2_ppm",
+        "pm25",
+        "wind_speed_kph",
+        "sea_level_mm",
+        "pressure_hpa",
+        "cloud_pct",
+        "visibility_m",
+        "aqi",
+        "co_ugm3",
+        "no2_ugm3",
+        "o3_ugm3",
+        "so2_ugm3",
+        "pm10_ugm3",
+        "weather_main",
+        "weather_desc",
+        "weather_icon",
+        "sunrise",
+        "sunset",
+        "synced_at"
+      ],
+      "source": "openweather",
+      "partitions": [
+        "climate/openweather_current/year=2026/month=10/part-00000.csv"
+      ],
+      "partition_count": 1,
+      "ingested_at": "2026-10-16T18:32:18"
+    },
+    "openweather_forecast": {
+      "rows": 5280,
+      "columns": [
+        "station_id",
+        "city",
+        "country",
+        "region",
+        "date",
+        "temperature_c",
+        "feels_like_c",
+        "humidity_pct",
+        "rainfall_mm",
+        "co2_ppm",
+        "pm25",
+        "wind_speed_kph",
+        "sea_level_mm",
+        "precipitation_prob",
+        "weather_main",
+        "weather_desc",
+        "weather_icon",
+        "is_forecast",
+        "synced_at"
+      ],
+      "source": "openweather",
+      "partitions": [
+        "climate/openweather_forecast/year=2026/month=10/part-00000.csv"
+      ],
+      "partition_count": 1,
+      "ingested_at": "2026-10-16T18:32:18"
     }
   }
 }

@@ -13,7 +13,7 @@ const GROUPS = [
     title: 'Monitor',
     items: [
       { to: '/', label: 'Dashboard', icon: '📊', end: true },
-      { to: '/live', label: 'Live Stream', icon: '📡' },
+      { to: '/live', label: 'Live Weather', icon: '🌦️' },
       { to: '/data', label: 'Data Explorer', icon: '🗄️' },
     ],
   },

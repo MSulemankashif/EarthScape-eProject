@@ -378,7 +378,9 @@ def test_correlation_skips_metrics_without_live_values(live_env, live_headers,
 
 def test_timeseries_adapts_to_short_live_spans(live_env, live_headers,
                                                monkeypatch):
-    monkeypatch.setattr("src.api.app._weather_df", _live_like_df)
+    # 2 days x 4 readings = a 42-hour span -> hourly buckets
+    monkeypatch.setattr("src.api.app._weather_df",
+                        lambda limit=None: _live_like_df(days=2))
     res = live_env["client"].get("/api/analytics/timeseries?metric=temperature_c",
                                  headers=live_headers)
     assert res.status_code == 200
@@ -406,6 +408,46 @@ def test_summary_ignores_absent_metrics(live_env, live_headers, monkeypatch):
     # live extras surfaced for the dashboard table
     assert "humidity_pct" in body["latest_by_station"][0]
     assert "weather_main" in body["latest_by_station"][0]
+
+
+def test_train_skips_trends_without_history_and_drops_stale(live_env,
+                                                            live_headers,
+                                                            monkeypatch):
+    """
+    Young live history (< 30 daily points) trains the anomaly model but skips
+    trend models — and any stale trend artifact (e.g. one fitted earlier on
+    test data) is dropped so it can never serve 'live' projections.
+    """
+    from src.ml.models import ClimateModelRegistry
+
+    reg = ClimateModelRegistry(live_env["tmp"] / "models")
+    monkeypatch.setattr("src.api.app.registry", reg)
+    monkeypatch.setattr("src.api.app._weather_df", _live_like_df)
+
+    # Plant a stale trend model (as if trained months ago on test data).
+    days = pd.date_range("2025-01-01", periods=40)
+    plant = pd.DataFrame({"date": days,
+                          "temperature_c": [15 + 0.1 * i for i in range(40)]})
+    reg.train_trend(plant, "temperature_c")
+    stale = reg.model_dir / "trend_temperature_c.joblib"
+    assert stale.exists()
+
+    res = live_env["client"].post("/api/analytics/ml/train",
+                                  headers=live_headers)
+    assert res.status_code == 200, res.get_json()
+    body = res.get_json()
+
+    # Anomaly model trained on live readings; trends honestly skipped.
+    assert "anomaly" in body["message"]
+    skipped = {m["metric"]: m["reason"]
+               for m in body["metrics_without_enough_data"]}
+    assert "temperature_c" in skipped      # few daily points so far
+    assert "co2_ppm" in skipped            # no live CO2 sensor
+    assert "30 days" in body["message"]
+
+    # The stale artifact is gone — no test-data projections can leak out.
+    assert not stale.exists()
+    assert body["freshness"]["metrics_without_enough_data"]
 
 
 def test_run_job_defaults_to_live_csv(live_env, live_headers, monkeypatch):
