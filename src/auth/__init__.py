@@ -18,6 +18,7 @@ Seed accounts (created on first run):
 from __future__ import annotations
 
 import secrets
+import time
 from datetime import datetime, timedelta
 from functools import wraps
 
@@ -72,16 +73,75 @@ def create_user(username: str, email: str, password: str,
 
 
 def authenticate(username: str, password: str) -> dict | None:
-    """Verify credentials; returns the user dict (sans hash) or None."""
+    """
+    Verify credentials; returns the user dict (sans hash) or None.
+
+    Brute-force protection: after MAX_LOGIN_ATTEMPTS consecutive failures
+    for one username, further attempts are rejected for LOCKOUT_SECONDS
+    even if the password is correct (security requirement).
+    """
+    username = (username or "").strip().lower()
+
+    # --- lockout check ---------------------------------------------------
+    attempt = _failed_attempts.get(username)
+    if attempt and attempt["until"] > time.time():
+        remaining = int(attempt["until"] - time.time())
+        log.warning("Locked-out account accessed: %s (%ss left)", username, remaining)
+        return None
+
     db = get_db()
-    user = db.find_one(COLLECTION, {"username": (username or "").strip().lower()})
+    user = db.find_one(COLLECTION, {"username": username})
     if not user or not user.get("active", True):
         return None
     if not check_password_hash(user.get("password_hash", ""), password or ""):
+        _record_failure(username)
         return None
+
+    # Success: clear the failure counter
+    _failed_attempts.pop(username, None)
     db.update(COLLECTION, {"username": user["username"]},
               {"last_login": datetime.now().isoformat(timespec="seconds")})
     return {k: v for k, v in user.items() if k != "password_hash"}
+
+
+# In-memory failed-attempt tracker: {username: {"count": n, "until": ts}}
+_failed_attempts: dict[str, dict] = {}
+MAX_LOGIN_ATTEMPTS = 5
+LOCKOUT_SECONDS = 300
+
+
+def _record_failure(username: str) -> None:
+    """Count one failed login; lock the account after MAX_LOGIN_ATTEMPTS."""
+    now = time.time()
+    attempt = _failed_attempts.get(username)
+    if attempt is None or attempt["until"] < now:
+        attempt = {"count": 0, "until": 0.0}
+    attempt["count"] += 1
+    if attempt["count"] >= MAX_LOGIN_ATTEMPTS:
+        attempt["until"] = now + LOCKOUT_SECONDS
+        log.warning("Account locked for %ss after %d failed logins: %s",
+                    LOCKOUT_SECONDS, attempt["count"], username)
+    _failed_attempts[username] = attempt
+
+
+def clear_failures(username: str | None = None) -> None:
+    """Testing helper: reset lockout state."""
+    if username is None:
+        _failed_attempts.clear()
+    else:
+        _failed_attempts.pop(username, None)
+
+
+def lockout_status(username: str) -> dict:
+    """How many failures remain before lockout (surfaced by the API)."""
+    attempt = _failed_attempts.get(username or "", {"count": 0, "until": 0.0})
+    remaining_time = max(0.0, attempt["until"] - time.time())
+    return {
+        "failed_count": attempt["count"],
+        "locked": remaining_time > 0,
+        "locked_for_seconds": int(remaining_time),
+        "attempts_before_lockout": max(0, MAX_LOGIN_ATTEMPTS - attempt["count"]),
+    }
 
 
 def list_users() -> list[dict]:

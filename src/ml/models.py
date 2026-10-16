@@ -295,6 +295,27 @@ class ClimateModelRegistry:
                 "top_relationships": analyzer.top_relationships()}
 
     # -- status -------------------------------------------------------------
+    def note_freshness(self, info: dict) -> None:
+        """
+        Persist training-freshness metadata ("models must be regularly
+        updated and refined based on the latest available data" — NFR).
+        Stored next to the models so it survives restarts.
+        """
+        self._meta_path().write_text(json.dumps(info, indent=2),
+                                     encoding="utf-8")
+
+    def freshness(self) -> dict | None:
+        path = self._meta_path()
+        if not path.exists():
+            return None
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):     # pragma: no cover
+            return None
+
+    def _meta_path(self) -> Path:
+        return self.model_dir / "models_meta.json"
+
     def status(self) -> dict:
         trends = {}
         for metric in METRICS:
@@ -306,5 +327,6 @@ class ClimateModelRegistry:
                                      or (self.model_dir / "anomaly_model.joblib").exists(),
             "trend_models": trends,
             "model_dir": str(self.model_dir),
+            "freshness": self.freshness(),
             "generated_at": datetime.now().isoformat(timespec="seconds"),
         }

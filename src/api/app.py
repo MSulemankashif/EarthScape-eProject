@@ -32,6 +32,7 @@ from src.auth import (
     current_user,
     issue_token,
     list_users,
+    lockout_status,
     login_required,
     role_required,
     seed_default_users,
@@ -48,6 +49,7 @@ from src.streaming import (
     start_stream,
     stop_stream,
 )
+from src.utils.backup import create_backup, latest_backup, list_backups, verify_backup
 from src.utils.logger import get_logger
 
 log = get_logger("earthscape.api")
@@ -56,11 +58,32 @@ app = Flask(__name__)
 CORS(app, origins=["http://localhost:5173", "http://127.0.0.1:5173"],
      supports_credentials=True)
 
+# Performance monitoring: in-memory ring of recent data-processing runs
+_job_history: list[dict] = []
+
+
+@app.after_request
+def security_headers(response):
+    """
+    Data-security hardening (non-functional requirement).
+
+    Production deployments terminate TLS at Apache/nginx; these headers
+    complement transport encryption by locking down browser behaviour.
+    """
+    response.headers.setdefault("X-Content-Type-Options", "nosniff")
+    response.headers.setdefault("X-Frame-Options", "DENY")
+    response.headers.setdefault("X-XSS-Protection", "1; mode=block")
+    response.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
+    response.headers.setdefault(
+        "Content-Security-Policy", "default-src 'self'; img-src 'self' data:;")
+    if request.path.startswith("/api/"):
+        response.headers.setdefault("Cache-Control", "no-store")
+    return response
+
 # ---------------------------------------------------------------------------
 # Singletons shared across requests
 # ---------------------------------------------------------------------------
 registry = ClimateModelRegistry()
-
 
 def _persist_alert(alert) -> None:
     """Dispatcher: log every alert AND store it in the database."""
@@ -141,7 +164,54 @@ def system_stats():
         "log_files": log_files,
         "cpu_count": os.cpu_count(),
         "stream_active": _stream_state["active"],
+        # Performance monitoring: recent data-processing times
+        "processing": {
+            "recent_jobs": _job_history[-8:],
+            "job_count": len(_job_history),
+            "avg_seconds": (round(sum(j["duration_seconds"]
+                                      for j in _job_history) / len(_job_history), 3)
+                            if _job_history else 0),
+        },
+        "backups": {
+            "count": len(list_backups()),
+            "latest": latest_backup(),
+        },
     })
+
+
+@app.post("/api/system/backup")
+@admin_required
+def api_create_backup():
+    """Admin-only: create an on-demand automated data backup (zip archive)."""
+    body = request.get_json(silent=True) or {}
+    try:
+        result = create_backup(label=body.get("label", "manual"))
+    except OSError as exc:
+        log.error("Backup failed: %s", exc)
+        return jsonify({"error": f"Backup failed: {exc}"}), 500
+    log.info("Backup created via API by %s: %s",
+             current_user()["username"], result["file"])
+    return jsonify({"message": f"Backup created ({result['files']} files).",
+                    "backup": result}), 201
+
+
+@app.get("/api/system/backups")
+@admin_required
+def api_list_backups():
+    items = list_backups()
+    return jsonify({"backups": items, "count": len(items)})
+
+
+@app.get("/api/system/backups/<name>/verify")
+@admin_required
+def api_verify_backup(name: str):
+    """Integrity-check an archive (all members readable, nothing corrupt)."""
+    try:
+        return jsonify(verify_backup(name))
+    except FileNotFoundError as exc:
+        return jsonify({"error": str(exc)}), 404
+    except IOError as exc:
+        return jsonify({"error": str(exc), "valid": False}), 422
 
 
 # ---------------------------------------------------------------------------
@@ -150,9 +220,22 @@ def system_stats():
 @app.post("/api/auth/login")
 def api_login():
     body = request.get_json(silent=True) or {}
-    user = authenticate(body.get("username", ""), body.get("password", ""))
+    username = body.get("username", "")
+    user = authenticate(username, body.get("password", ""))
     if not user:
-        return jsonify({"error": "Invalid username or password."}), 401
+        # Surface lockout state so the UI can warn the user kindly
+        status = lockout_status(username)
+        if status["locked"]:
+            mins = max(1, status["locked_for_seconds"] // 60)
+            return jsonify({
+                "error": (f"Too many failed attempts — this account is locked "
+                          f"for {mins} minute(s). Try again later."),
+                "lockout": status,
+            }), 423
+        return jsonify({
+            "error": "Invalid username or password.",
+            "lockout": status,
+        }), 401
     return jsonify({
         "token": issue_token(user),
         "user": {"username": user["username"], "email": user["email"],
@@ -312,6 +395,7 @@ def api_run_job():
     input_csv = body.get("input") or "data/raw/weather_stations.csv"
     zscore = float(body.get("zscore", 3.0))
 
+    started = time.perf_counter()
     try:
         result = run_job(job_name, input_csv, zscore=zscore)
     except (KeyError, FileNotFoundError) as exc:
@@ -319,17 +403,30 @@ def api_run_job():
     except Exception as exc:
         log.error("MapReduce job failed: %s", exc)
         return jsonify({"error": f"Job failed: {exc}"}), 500
+    duration = round(time.perf_counter() - started, 3)
+
+    # Record for performance monitoring (data-processing times)
+    _job_history.append({
+        "name": f"mapreduce:{job_name}",
+        "rows": int(len(result)),
+        "duration_seconds": duration,
+        "finished_at": datetime.now().isoformat(timespec="seconds"),
+    })
+    del _job_history[:-50]          # keep the last 50 runs only
 
     preview = json_safe(result.head(50).to_dict(orient="records"))
     return jsonify({"job": job_name, "rows": len(result),
+                    "duration_seconds": duration,
                     "preview": preview,
-                    "message": f"Job '{job_name}' completed on {len(result)} rows."})
+                    "message": (f"Job '{job_name}' completed on {len(result)} "
+                                f"rows in {duration}s.")})
 
 
 @app.post("/api/analytics/ml/train")
 @role_required("admin", "analyst")
 def api_train_models():
     """Train anomaly + trend models on the full weather history."""
+    started = time.perf_counter()
     try:
         df = _weather_df()
         if df.empty:
@@ -346,12 +443,31 @@ def api_train_models():
         flagged = anomalies[anomalies["is_anomaly"]]
         sample = json_safe(flagged.tail(50).drop(
             columns=["is_anomaly"], errors="ignore").to_dict(orient="records"))
+        duration = round(time.perf_counter() - started, 3)
+
+        # Freshness metadata — "models must be regularly updated" (NFR)
+        freshness = {
+            "trained_at": datetime.now().isoformat(timespec="seconds"),
+            "rows_used": int(len(df)),
+            "duration_seconds": duration,
+        }
+        registry.note_freshness(freshness)
+
+        _job_history.append({
+            "name": "ml:train",
+            "rows": int(len(df)),
+            "duration_seconds": duration,
+            "finished_at": freshness["trained_at"],
+        })
+        del _job_history[:-50]
+
         return jsonify({
             "message": f"Trained: {', '.join(trained)}",
             "anomalies_detected": int(len(flagged)),
             "anomaly_rate": round(len(flagged) / max(1, len(df)), 4),
             "recent_anomalies": sample,
             "trends": registry.status()["trend_models"],
+            "freshness": freshness,
         })
     except Exception as exc:
         log.error("Model training failed: %s", exc)
