@@ -11,7 +11,7 @@
         ┌───────────────┬────────────┼───────────────┬────────────────┐
         ▼               ▼            ▼               ▼                ▼
   src/auth/       src/hadoop/   src/ml/models   src/alerts/     src/streaming/
-  tokens+roles    storage.py    anomaly/trend   rule engine     live simulator
+  tokens+roles    storage.py    anomaly/trend   rule engine     live OpenWeather sync
                   mapreduce/    correlation     dispatchers     (background
                   job_runner                                  thread)
         │               │            │               │                │
@@ -65,9 +65,14 @@
 | `GET /api/auth/me` | login | current user |
 | `GET /api/auth/users` | admin | list users |
 | `PATCH /api/auth/users/<u>/role` | admin | change role |
-| `GET /api/data/datasets` | login | catalog + sizes |
-| `POST /api/data/ingest` | admin/analyst | run full ingestion |
-| `GET /api/data/readings` | login | paginated, filter by station/start/end |
+| `GET /api/live/status` | login | OpenWeather integration health |
+| `GET /api/live/cities` | login | the 12 tracked cities (code/name/lat/lon/region) |
+| `GET /api/live/latest` | login | latest live reading per city (cache → storage) |
+| `POST /api/live/sync` | admin/analyst | pull live weather now `{forecast?, force?}` |
+| `GET /api/live/forecast` | login | real 5-day / 3-hour forecast `?city=` |
+| `GET /api/data/datasets` | login | live catalog + sizes (synthetic archives hidden) |
+| `POST /api/data/ingest` | admin/analyst | run full ingestion (test archives) |
+| `GET /api/data/readings` | login | paginated, filter by station/start/end/dataset |
 | `GET /api/data/stations` | login | station list |
 | `GET /api/analytics/jobs` | login | job catalogue |
 | `POST /api/analytics/jobs/run` | admin/analyst | run MapReduce job `{job, input, zscore}` |
@@ -81,9 +86,9 @@
 | `GET/POST /api/alerts/rules` | login / admin | list / create rule |
 | `DELETE /api/alerts/rules/<n>` | admin | remove rule |
 | `POST /api/alerts/rules/<n>/<enable\|disable>` | admin | toggle rule |
-| `GET /api/stream/latest` | login | newest readings |
-| `GET /api/stream/series` | login | chart series |
-| `POST /api/stream/start\|stop` | admin | simulator control |
+| `GET /api/stream/latest` | login | newest readings (offline simulator fixture) |
+| `GET /api/stream/series` | login | chart series (offline fixture) |
+| `POST /api/stream/start\|stop` | admin | offline simulator control (test fixture) |
 | `GET/POST /api/feedback` | login | list (own/all) / create ticket |
 | `PATCH /api/feedback/<id>` | admin | update status |
 | `GET /api/system/stats` | login | uptime, storage, alerts, models, logs |

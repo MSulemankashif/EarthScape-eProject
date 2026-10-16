@@ -14,39 +14,45 @@ the bottom of the sidebar.
 
 ## 📊 Dashboard
 
-The landing page with national climate KPIs.
+The landing page — every number is **live OpenWeatherMap data** for 12
+Pakistani cities.
 
-- **Run Ingestion Pipeline** — loads the raw CSV datasets into partitioned
-  HDFS-style storage. Click this once on a fresh install; the stat cards,
-  trend chart and station table appear afterwards.
-- **KPI cards** — average temperature, CO₂, PM2.5, rainfall, missing-value
-  count and active storage backend.
-- **Monthly temperature chart** — national average, last 36 months.
-- **Latest Reading per Station** — one row per station; PM2.5 values above
-  150 µg/m³ are highlighted red (hazardous air quality).
+- **☁ Sync live weather** — pulls real conditions + 5-day forecasts now
+  (a first sync also starts automatically on a fresh install; then the
+  backend re-syncs every 10 minutes). The header chip shows when data was
+  last synced.
+- **KPI cards** — average temperature, humidity, wind, PM2.5, total live
+  readings and the missing-value count.
+- **Trend chart** — pick Temperature / Humidity / Wind / PM2.5 / Rainfall;
+  the subtitle tells you the aggregation (5-minute buckets on brand-new
+  history, then hourly, daily, monthly as the warehouse grows).
+- **Current conditions across cities** — weather emoji, region tag and the
+  freshest reading per city; PM2.5 above 150 µg/m³ is highlighted red.
 
-## 📡 Live Stream
+## 🌦️ Live Weather
 
-Real-time sensor feed (polls every 3 seconds).
+The real-time heart of the platform (refreshes every 30 s; backend re-syncs
+every 10 min).
 
-- **Start/Stop simulator** (admin only) — the generator pushes 3 readings
-  every 2 seconds, including occasional spikes (~5%) so the alert system has
-  events to show.
-- **Metric selector** — watch temperature, CO₂, PM2.5, wind, humidity or
-  rainfall live.
-- **Latest readings table** — rows tagged `spike` are simulated extreme
-  events.
+- **☁ Sync now** — fetch fresh data immediately (a friendly 30-second
+  cooldown protects the free API quota).
+- **City cards** — emoji, temperature, feels-like, humidity, wind, PM2.5 and
+  an AQI badge (Good → Very poor).
+- **By-city bar chart** — compare the selected metric across all 12 cities.
+- **Latest readings table** — station, observation time, pressure and
+  condition for every city.
 
 ## 🗄️ Data Explorer
 
-Browse the historical dataset (13,140 daily readings × 12 stations,
-2022-01-01 → 2024-12-31).
+Browse the live warehouse: `openweather_current` (one row per city per sync)
+and `openweather_forecast` (40 three-hour slots per city) — switch datasets
+with the dropdown.
 
-- Dataset cards show rows, partitions and size per ingested dataset.
+- Dataset cards show rows, partitions, size and a “Live · OpenWeather” tag.
 - Filter by **station**, **start date**, **end date** — server-side
   pagination (50 rows/page).
 - Missing measurements display as `—` (never zero-filled — zeros would skew
-  the analytics).
+  the analytics; e.g. OpenWeather has no CO₂ sensor, so CO₂ stays honest).
 
 ## 🧠 Analytics & Machine Learning
 
@@ -113,7 +119,7 @@ Example custom rule: `co2_watch — co2_ppm exceeds 450 → critical`.
 ## Tips
 
 - **First-time checklist**: 1) Run ingestion (Dashboard) → 2) Train models
-  (Analytics) → 3) Start stream (Live Stream) → 4) Watch alerts appear.
+  (Analytics) → 3) Sync live weather (Live Weather) → 4) Watch alerts appear.
 - Session lasts 8 hours; you'll be redirected to login when it expires.
 - All numbers in tables show `—` when the underlying measurement was
   missing — this is intentional (graceful handling of incomplete data).

@@ -32,14 +32,16 @@ python -m venv .venv
 # 3.3 Install Python dependencies
 pip install -r requirements.txt
 
-# 3.4 Generate the synthetic test data (~1.2 MB weather + 1.4 MB sensors + 26 KB satellite)
-python -m src.ingestion.generate_test_data
-
-# 3.5 Ingest into HDFS-partitioned storage (creates data/hdfs_sim/…)
-python -m src.ingestion.pipeline
-
-# 3.6 Start the REST API  →  http://127.0.0.1:5000
+# 3.4 Start the REST API  →  http://127.0.0.1:5000
+#    (~4 s after boot it performs the FIRST LIVE SYNC: current conditions +
+#     air quality + 5-day forecasts for 12 cities from OpenWeatherMap,
+#     then re-syncs every 10 minutes. Internet required.)
 python -m src.api.app
+
+# 3.5 OPTIONAL — offline test archives (pytest suite + MapReduce CLI only;
+#     the UI never displays them)
+python -m src.ingestion.generate_test_data   # ~1.2 MB weather + 1.4 MB sensors
+python -m src.ingestion.pipeline             # partitions into data/hdfs_sim/
 ```
 
 Verify: open <http://127.0.0.1:5000/api/health> — expect

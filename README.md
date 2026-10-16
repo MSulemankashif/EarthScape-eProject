@@ -180,7 +180,7 @@ EarthScape-eProject/
 ## ✅ Tests
 
 ```powershell
-python -m pytest tests/ -q      # 128 passed
+python -m pytest tests/ -q      # 129 passed
 ```
 
 ## 🔐 Security notes

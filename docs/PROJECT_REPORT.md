@@ -36,7 +36,7 @@ analyze and visualize** this data for informed, proactive decision-making.
 | ML | scikit-learn (IsolationForest, LinearRegression), NumPy, pandas |
 | Database | MongoDB (optional) / JSON document store fallback |
 | Auth | Werkzeug PBKDF2-SHA256 + itsdangerous signed tokens |
-| Streaming | Background thread simulator + ring buffer (Kafka/MQTT-ready hook) |
+| Streaming | Background live-sync thread (OpenWeather → cleaning → HDFS partitions → alert engine); offline simulator kept as test fixture (Kafka/MQTT-ready hook) |
 
 ### 2.2 Data model
 
@@ -49,6 +49,15 @@ humidity_pct, rainfall_mm, co2_ppm, pm25, wind_speed_kph, sea_level_mm`
 
 **satellite_imagery.csv** (468 rows) — weekly NDVI, land-surface temperature,
 aerosol index, chlorophyll-a, ice cover per region.
+
+*The three archives above are synthetic test data (pytest suite + MapReduce
+CLI only) — the UI never serves them.*
+
+**Live OpenWeather datasets** (served by every UI page, refreshed every 10 min)
+`openweather_current` (one row per city per sync: temp, humidity, rain, wind,
+PM2.5, AQI, pressure, condition) and `openweather_forecast` (40 three-hour
+slots per city) with the same metric schema; `co2_ppm` / `sea_level_mm` are
+stored as honest missing values because OpenWeatherMap has no such sensors.
 
 HDFS layout: `/climate/<dataset>/year=YYYY/month=MM/part-00000.csv`
 (live readings also carry `day=DD`).
@@ -298,12 +307,15 @@ Login: `admin/admin@123` or `analyst/analyst@123`.
 1. Lab machines have no Hadoop cluster → LocalHDFS simulation (same
    interface; real HDFS activates via `EARTHSCAPE_MODE=hadoop`).
 2. MongoDB optional → JSON document store fallback (same API).
-3. Climate datasets are synthetic but statistically realistic (documented in
-   §6).
+3. Primary climate data is **live** — real OpenWeatherMap observations for
+   12 Pakistani cities (see §2.2). The synthetic archives remain only as
+   offline test data; OpenWeather's missing CO₂/sea-level metrics
+   demonstrate graceful missing-data handling (§6).
 4. Email/webhook alert channels implemented but not enabled (no SMTP in lab).
-5. Tableau/Impala/RStudio consume exported CSVs offline (per software list).
+5. Tableau/Impala/RStudio consume exported CSVs offline (per software list),
+   including the live export `data/processed/openweather_current.csv`.
 
 ---
 
 *End of report. Source code: project root. Tests: `python -m pytest tests/ -q`
-→ 93 passed.*
+→ 129 passed.*
