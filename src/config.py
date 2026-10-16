@@ -71,10 +71,29 @@ APP_PORT = int(os.environ.get("EARTHSCAPE_PORT", "5000"))
 DEBUG = os.environ.get("EARTHSCAPE_DEBUG", "1") == "1"
 
 # ---------------------------------------------------------------------------
-# Real-time stream simulator
+# Real-time stream simulator (offline test fixture only — the UI now uses
+# live OpenWeather data, see below)
 # ---------------------------------------------------------------------------
 STREAM_INTERVAL_SECONDS = 2     # delay between simulated live readings
 STREAM_BATCH_PER_TICK = 3        # readings pushed per interval
+
+# ---------------------------------------------------------------------------
+# OpenWeatherMap LIVE data (primary data source of the dashboard)
+# ---------------------------------------------------------------------------
+# Free-tier plan: /weather, /forecast, /air_pollution (60 calls/minute).
+# Override with the OPENWEATHER_API_KEY environment variable in production.
+OPENWEATHER_API_KEY = os.environ.get("OPENWEATHER_API_KEY",
+                                     "e45941b02276d2ffd6cf0212226a1f9b")
+OPENWEATHER_BASE = "https://api.openweathermap.org/data/2.5"
+OPENWEATHER_UNITS = "metric"
+
+# Auto-sync cadence: fetch every N minutes in the background (0 = disabled).
+OW_SYNC_INTERVAL_MIN = int(os.environ.get("OW_SYNC_INTERVAL_MIN", "10"))
+# Also pull each city's real 5-day / 3-hour forecast into storage.
+OW_SYNC_FORECAST = os.environ.get("OW_SYNC_FORECAST", "1") == "1"
+# Server-side cooldown between syncs so the free quota is never burned.
+OW_MIN_SYNC_GAP_SECONDS = int(os.environ.get("OW_MIN_SYNC_GAP", "30"))
+OW_HTTP_TIMEOUT = int(os.environ.get("OW_HTTP_TIMEOUT", "15"))
 
 # Ensure every directory exists at import time
 for _d in (RAW_DATA_DIR, PROCESSED_DATA_DIR, MODELS_DIR, LOGS_DIR, HDFS_SIM_ROOT):
